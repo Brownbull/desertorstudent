@@ -1,0 +1,50 @@
+Columns on Logic:
+Ones/LangScr/S1_DRP/S1_GRD_1TO19/S1_GRD_3TO39/S1_GRD_4TO49/S2_CVL/S2_GRD_1TO19/S2_GRD_3TO39/S2_GRD_4TO49/S2_GRD_5TO59/S2_GRD_6TO7/S2_BEST_GRD/SchoolRegion_2/SchoolRegion_3/SchoolRegion_7/SchoolRegion_9/SchoolType_2/MotherEd_5/MotherEd_7/Campus_1/PostulationType_1
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Desertor   R-squared:                       0.499
+Model:                            OLS   Adj. R-squared:                  0.478
+Method:                 Least Squares   F-statistic:                     23.28
+Date:                Mon, 23 Sep 2019   Prob (F-statistic):           2.98e-63
+Time:                        22:11:26   Log-Likelihood:                -155.30
+No. Observations:                 537   AIC:                             356.6
+Df Residuals:                     514   BIC:                             455.2
+Df Model:                          22                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Ones                  0.4204      0.163      2.574      0.010       0.099       0.741
+LangScr               0.0004      0.000      1.602      0.110   -9.17e-05       0.001
+S1_DRP                0.0211      0.012      1.722      0.086      -0.003       0.045
+S1_GRD_1TO19          0.0549      0.024      2.276      0.023       0.008       0.102
+S1_GRD_2TO29          0.0222      0.019      1.201      0.230      -0.014       0.059
+S1_GRD_3TO39          0.0172      0.014      1.225      0.221      -0.010       0.045
+S1_GRD_4TO49         -0.0407      0.013     -3.170      0.002      -0.066      -0.015
+S2_CVL               -0.0297      0.019     -1.544      0.123      -0.067       0.008
+S2_GRD_1TO19         -0.0559      0.030     -1.885      0.060      -0.114       0.002
+S2_GRD_3TO39         -0.0615      0.017     -3.603      0.000      -0.095      -0.028
+S2_GRD_4TO49         -0.0818      0.015     -5.514      0.000      -0.111      -0.053
+S2_GRD_5TO59         -0.0616      0.016     -3.869      0.000      -0.093      -0.030
+S2_GRD_6TO7          -0.0621      0.025     -2.529      0.012      -0.110      -0.014
+S2_BEST_GRD          -0.0036      0.001     -2.626      0.009      -0.006      -0.001
+SchoolRegion_2        0.3972      0.172      2.314      0.021       0.060       0.735
+SchoolRegion_3        0.1824      0.138      1.324      0.186      -0.088       0.453
+SchoolRegion_7       -0.3608      0.120     -3.012      0.003      -0.596      -0.125
+SchoolRegion_9       -0.2087      0.170     -1.226      0.221      -0.543       0.126
+SchoolType_2         -0.1172      0.033     -3.502      0.001      -0.183      -0.051
+MotherEd_5           -0.1051      0.083     -1.267      0.206      -0.268       0.058
+MotherEd_7            0.1551      0.065      2.401      0.017       0.028       0.282
+Campus_1              0.3172      0.110      2.873      0.004       0.100       0.534
+PostulationType_1     0.1274      0.063      2.008      0.045       0.003       0.252
+==============================================================================
+Omnibus:                       33.532   Durbin-Watson:                   1.953
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               49.069
+Skew:                           0.484   Prob(JB):                     2.21e-11
+Kurtosis:                       4.121   Cond. No.                     6.94e+03
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 6.94e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.

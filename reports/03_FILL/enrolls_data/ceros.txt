@@ -1,0 +1,14 @@
+enrolls_data columns with null values:
+                     EntryYear                     0
+                           Rut                     0
+                        Campus                     0
+               PostulationType                     0
+                        NEMScr                     0
+                       Ranking                     0
+                       LangScr                     0
+                       MathScr                     0
+                      ScienScr                     0
+                  SchoolRegion                     0
+                    EdTypeCode                     0
+                    SchoolType                     0
+                      MotherEd                   213

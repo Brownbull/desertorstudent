@@ -1,0 +1,35 @@
+Columns on Logic:
+Ones/S1_GRD_4TO49/S1_GRD_5TO59/S2_CVL/S2_GRD_3TO39/S2_GRD_4TO49/S2_GRD_5TO59/S2_GRD_6TO7/S2_BEST_GRD
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Desertor   R-squared:                       0.454
+Model:                            OLS   Adj. R-squared:                  0.445
+Method:                 Least Squares   F-statistic:                     48.66
+Date:                Mon, 23 Sep 2019   Prob (F-statistic):           1.03e-63
+Time:                        22:11:30   Log-Likelihood:                -178.51
+No. Observations:                 537   AIC:                             377.0
+Df Residuals:                     527   BIC:                             419.9
+Df Model:                           9                                         
+Covariance Type:            nonrobust                                         
+================================================================================
+                   coef    std err          t      P>|t|      [0.025      0.975]
+--------------------------------------------------------------------------------
+Ones             0.8328      0.038     22.190      0.000       0.759       0.907
+S1_GRD_1TO19     0.0374      0.023      1.593      0.112      -0.009       0.083
+S1_GRD_4TO49    -0.0485      0.012     -3.974      0.000      -0.072      -0.025
+S1_GRD_5TO59    -0.0287      0.013     -2.226      0.026      -0.054      -0.003
+S2_CVL          -0.0304      0.019     -1.601      0.110      -0.068       0.007
+S2_GRD_3TO39    -0.0423      0.017     -2.511      0.012      -0.075      -0.009
+S2_GRD_4TO49    -0.0652      0.014     -4.553      0.000      -0.093      -0.037
+S2_GRD_5TO59    -0.0446      0.015     -3.047      0.002      -0.073      -0.016
+S2_GRD_6TO7     -0.0413      0.023     -1.781      0.076      -0.087       0.004
+S2_BEST_GRD     -0.0054      0.001     -4.373      0.000      -0.008      -0.003
+==============================================================================
+Omnibus:                       36.571   Durbin-Watson:                   1.937
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               54.783
+Skew:                           0.510   Prob(JB):                     1.27e-12
+Kurtosis:                       4.186   Cond. No.                         137.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

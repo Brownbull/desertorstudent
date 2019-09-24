@@ -1,0 +1,33 @@
+Columns on Logic:
+Ones/SchoolRegion_2/SchoolRegion_3/SchoolRegion_6/SchoolType_2/MotherEd_3/PostulationType_1
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Desertor   R-squared:                       0.054
+Model:                            OLS   Adj. R-squared:                  0.041
+Method:                 Least Squares   F-statistic:                     4.304
+Date:                Mon, 23 Sep 2019   Prob (F-statistic):           0.000120
+Time:                        22:11:28   Log-Likelihood:                -326.04
+No. Observations:                 537   AIC:                             668.1
+Df Residuals:                     529   BIC:                             702.4
+Df Model:                           7                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Ones                  0.1627      0.082      1.974      0.049       0.001       0.325
+SchoolRegion_2        0.4494      0.225      2.000      0.046       0.008       0.891
+SchoolRegion_3        0.4003      0.184      2.175      0.030       0.039       0.762
+SchoolRegion_6        0.4514      0.171      2.642      0.008       0.116       0.787
+SchoolType_2         -0.1203      0.045     -2.663      0.008      -0.209      -0.032
+MotherEd_3           -0.0911      0.048     -1.894      0.059      -0.186       0.003
+MotherEd_4           -0.1483      0.084     -1.757      0.080      -0.314       0.018
+PostulationType_1     0.1908      0.084      2.271      0.024       0.026       0.356
+==============================================================================
+Omnibus:                      178.632   Durbin-Watson:                   1.917
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               91.522
+Skew:                           0.871   Prob(JB):                     1.34e-20
+Kurtosis:                       1.971   Cond. No.                         16.6
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

@@ -1,0 +1,50 @@
+Columns on Logic:
+Ones/NEMScr/Ranking/LangScr/MathScr/SchoolRegion_1/SchoolRegion_2/SchoolRegion_3/SchoolRegion_5/SchoolRegion_6/SchoolRegion_7/SchoolRegion_9/SchoolRegion_11/SchoolRegion_13/EdTypeCode_2/SchoolType_2/MotherEd_1/MotherEd_3/MotherEd_4/MotherEd_5/MotherEd_7/PostulationType_1
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Desertor   R-squared:                       0.149
+Model:                            OLS   Adj. R-squared:                  0.113
+Method:                 Least Squares   F-statistic:                     4.102
+Date:                Mon, 23 Sep 2019   Prob (F-statistic):           2.65e-09
+Time:                        22:11:32   Log-Likelihood:                -297.47
+No. Observations:                 537   AIC:                             640.9
+Df Residuals:                     514   BIC:                             739.5
+Df Model:                          22                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Ones                  1.3718      0.289      4.739      0.000       0.803       1.941
+NEMScr               -0.0020      0.001     -1.750      0.081      -0.004       0.000
+Ranking               0.0011      0.001      1.191      0.234      -0.001       0.003
+LangScr               0.0010      0.000      2.960      0.003       0.000       0.002
+MathScr              -0.0020      0.000     -4.277      0.000      -0.003      -0.001
+SchoolRegion_1       -0.1927      0.170     -1.131      0.259      -0.528       0.142
+SchoolRegion_2        0.3590      0.228      1.577      0.115      -0.088       0.806
+SchoolRegion_3        0.3175      0.192      1.653      0.099      -0.060       0.695
+SchoolRegion_5        0.1578      0.171      0.923      0.356      -0.178       0.494
+SchoolRegion_6        0.2342      0.181      1.296      0.196      -0.121       0.589
+SchoolRegion_7       -0.1993      0.097     -2.058      0.040      -0.390      -0.009
+SchoolRegion_9       -0.3444      0.229     -1.504      0.133      -0.794       0.105
+SchoolRegion_11      -0.0996      0.077     -1.294      0.196      -0.251       0.052
+SchoolRegion_13       0.5249      0.439      1.196      0.232      -0.338       1.387
+EdTypeCode_2          0.1330      0.103      1.297      0.195      -0.069       0.334
+SchoolType_2         -0.0841      0.045     -1.866      0.063      -0.173       0.004
+SchoolType_4         -0.1762      0.256     -0.689      0.491      -0.678       0.326
+MotherEd_1           -0.1134      0.069     -1.650      0.100      -0.248       0.022
+MotherEd_3           -0.0932      0.049     -1.898      0.058      -0.190       0.003
+MotherEd_4           -0.1838      0.083     -2.225      0.026      -0.346      -0.022
+MotherEd_5           -0.2363      0.110     -2.157      0.031      -0.451      -0.021
+MotherEd_7            0.0933      0.085      1.093      0.275      -0.074       0.261
+PostulationType_1     0.2083      0.083      2.515      0.012       0.046       0.371
+==============================================================================
+Omnibus:                      100.128   Durbin-Watson:                   1.886
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               64.494
+Skew:                           0.726   Prob(JB):                     9.89e-15
+Kurtosis:                       2.121   Cond. No.                     2.65e+04
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 2.65e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.

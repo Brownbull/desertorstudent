@@ -1,0 +1,7 @@
+Model:SLR_MotherEd_5_vs_S2_GRD_2TO29 
+        x: M, o, t, h, e, r, E, d, _, 5
+        y: S2_GRD_2TO29
+      Accuracy:    0.2926829268292683
+     Precision:                   0.0
+        Recall:                   nan
+      F1_Score:                   nan

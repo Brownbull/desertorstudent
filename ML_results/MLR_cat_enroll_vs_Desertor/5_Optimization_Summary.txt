@@ -1,0 +1,49 @@
+Columns on Logic:
+Ones/SchoolRegion_1/SchoolRegion_2/SchoolRegion_3/SchoolRegion_5/SchoolRegion_6/SchoolRegion_7/SchoolRegion_9/SchoolRegion_10/SchoolRegion_11/SchoolRegion_13/EdTypeCode_2/SchoolType_1/SchoolType_2/SchoolType_3/SchoolType_4/MotherEd_1/MotherEd_2/MotherEd_3/MotherEd_4/MotherEd_5/MotherEd_7/PostulationType_1
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Desertor   R-squared:                       0.092
+Model:                            OLS   Adj. R-squared:                  0.051
+Method:                 Least Squares   F-statistic:                     2.257
+Date:                Mon, 23 Sep 2019   Prob (F-statistic):           0.000803
+Time:                        22:11:28   Log-Likelihood:                -315.03
+No. Observations:                 537   AIC:                             678.1
+Df Residuals:                     513   BIC:                             780.9
+Df Model:                          23                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Ones                  0.3335      0.140      2.386      0.017       0.059       0.608
+SchoolRegion_1       -0.1992      0.178     -1.120      0.263      -0.549       0.150
+SchoolRegion_2        0.3473      0.237      1.467      0.143      -0.118       0.812
+SchoolRegion_3        0.3176      0.200      1.589      0.113      -0.075       0.710
+SchoolRegion_5        0.1023      0.178      0.573      0.567      -0.248       0.453
+SchoolRegion_6        0.3117      0.190      1.639      0.102      -0.062       0.685
+SchoolRegion_7       -0.1891      0.104     -1.822      0.069      -0.393       0.015
+SchoolRegion_9       -0.3781      0.237     -1.592      0.112      -0.845       0.088
+SchoolRegion_10      -0.3498      0.454     -0.771      0.441      -1.242       0.542
+SchoolRegion_11      -0.1004      0.083     -1.215      0.225      -0.263       0.062
+SchoolRegion_12       0.1853      0.330      0.562      0.574      -0.463       0.833
+SchoolRegion_13       0.6443      0.460      1.401      0.162      -0.259       1.548
+EdTypeCode_2          0.1799      0.104      1.729      0.084      -0.024       0.384
+SchoolType_1         -0.0754      0.115     -0.656      0.512      -0.301       0.150
+SchoolType_2         -0.1858      0.097     -1.908      0.057      -0.377       0.006
+SchoolType_3         -0.0813      0.092     -0.883      0.377      -0.262       0.099
+SchoolType_4         -0.1610      0.275     -0.586      0.558      -0.701       0.379
+MotherEd_1           -0.1039      0.071     -1.465      0.143      -0.243       0.035
+MotherEd_2            0.0720      0.110      0.653      0.514      -0.145       0.289
+MotherEd_3           -0.1054      0.051     -2.051      0.041      -0.206      -0.004
+MotherEd_4           -0.1816      0.087     -2.097      0.036      -0.352      -0.011
+MotherEd_5           -0.1890      0.113     -1.677      0.094      -0.410       0.032
+MotherEd_7            0.0637      0.088      0.720      0.472      -0.110       0.237
+PostulationType_1     0.2030      0.086      2.362      0.019       0.034       0.372
+==============================================================================
+Omnibus:                      129.569   Durbin-Watson:                   1.911
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               80.896
+Skew:                           0.827   Prob(JB):                     2.71e-18
+Kurtosis:                       2.060   Cond. No.                         43.4
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

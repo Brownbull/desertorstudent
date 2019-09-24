@@ -1,0 +1,51 @@
+Columns on Logic:
+Ones/SchoolRegion_1/SchoolRegion_2/SchoolRegion_3/SchoolRegion_5/SchoolRegion_6/SchoolRegion_7/SchoolRegion_9/SchoolRegion_10/SchoolRegion_11/SchoolRegion_12/SchoolRegion_13/EdTypeCode_2/SchoolType_1/SchoolType_2/SchoolType_3/SchoolType_4/MotherEd_1/MotherEd_2/MotherEd_3/MotherEd_4/MotherEd_5/MotherEd_6/MotherEd_7/PostulationType_1
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Desertor   R-squared:                       0.092
+Model:                            OLS   Adj. R-squared:                  0.048
+Method:                 Least Squares   F-statistic:                     2.075
+Date:                Mon, 23 Sep 2019   Prob (F-statistic):            0.00185
+Time:                        22:11:28   Log-Likelihood:                -314.95
+No. Observations:                 537   AIC:                             681.9
+Df Residuals:                     511   BIC:                             793.3
+Df Model:                          25                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Ones                  0.3401      0.146      2.333      0.020       0.054       0.627
+SchoolRegion_1       -0.2035      0.180     -1.131      0.258      -0.557       0.150
+SchoolRegion_2        0.3496      0.240      1.460      0.145      -0.121       0.820
+SchoolRegion_3        0.3114      0.202      1.543      0.124      -0.085       0.708
+SchoolRegion_5        0.0976      0.181      0.540      0.589      -0.257       0.452
+SchoolRegion_6        0.3089      0.192      1.607      0.109      -0.069       0.686
+SchoolRegion_7       -0.1930      0.107     -1.803      0.072      -0.403       0.017
+SchoolRegion_8       -0.0530      0.273     -0.194      0.846      -0.590       0.484
+SchoolRegion_9       -0.3853      0.240     -1.608      0.108      -0.856       0.085
+SchoolRegion_10      -0.3544      0.456     -0.778      0.437      -1.249       0.541
+SchoolRegion_11      -0.1048      0.087     -1.209      0.227      -0.275       0.065
+SchoolRegion_12       0.1819      0.331      0.549      0.583      -0.469       0.833
+SchoolRegion_13       0.6417      0.461      1.391      0.165      -0.265       1.548
+EdTypeCode_2          0.1780      0.104      1.705      0.089      -0.027       0.383
+SchoolType_1         -0.0784      0.115     -0.680      0.497      -0.305       0.148
+SchoolType_2         -0.1857      0.098     -1.888      0.060      -0.379       0.008
+SchoolType_3         -0.0823      0.092     -0.890      0.374      -0.264       0.099
+SchoolType_4         -0.1663      0.276     -0.603      0.547      -0.708       0.376
+MotherEd_1           -0.1094      0.073     -1.495      0.136      -0.253       0.034
+MotherEd_2            0.0671      0.111      0.602      0.547      -0.152       0.286
+MotherEd_3           -0.1102      0.054     -2.048      0.041      -0.216      -0.004
+MotherEd_4           -0.1867      0.088     -2.119      0.035      -0.360      -0.014
+MotherEd_5           -0.1944      0.114     -1.705      0.089      -0.418       0.030
+MotherEd_6           -0.0215      0.067     -0.320      0.749      -0.154       0.111
+MotherEd_7            0.0587      0.090      0.653      0.514      -0.118       0.235
+PostulationType_1     0.2068      0.088      2.351      0.019       0.034       0.380
+==============================================================================
+Omnibus:                      128.517   Durbin-Watson:                   1.913
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               80.847
+Skew:                           0.827   Prob(JB):                     2.78e-18
+Kurtosis:                       2.063   Cond. No.                         44.0
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

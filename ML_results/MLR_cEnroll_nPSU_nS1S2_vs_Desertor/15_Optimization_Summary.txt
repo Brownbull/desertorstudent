@@ -1,0 +1,69 @@
+Columns on Logic:
+Ones/NEMScr/Ranking/LangScr/S1_DRP/S1_BAD/S1_CVL/S1_GRD_1TO19/S1_GRD_2TO29/S1_GRD_3TO39/S1_GRD_4TO49/S1_GRD_6TO7/S2_BAD/S2_CVL/S2_GRD_1TO19/S2_GRD_3TO39/S2_GRD_4TO49/S2_GRD_5TO59/S2_GRD_6TO7/S2_BEST_GRD/S2_VS_S1/SchoolRegion_1/SchoolRegion_2/SchoolRegion_3/SchoolRegion_5/SchoolRegion_6/SchoolRegion_7/SchoolRegion_9/SchoolRegion_12/SchoolRegion_13/EdTypeCode_1/EdTypeCode_2/SchoolType_2/SchoolType_4/MotherEd_1/MotherEd_3/MotherEd_4/MotherEd_5/MotherEd_7/Campus_1/PostulationType_1
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Desertor   R-squared:                       0.511
+Model:                            OLS   Adj. R-squared:                  0.471
+Method:                 Least Squares   F-statistic:                     12.62
+Date:                Mon, 23 Sep 2019   Prob (F-statistic):           5.31e-54
+Time:                        22:11:25   Log-Likelihood:                -148.80
+No. Observations:                 537   AIC:                             381.6
+Df Residuals:                     495   BIC:                             561.6
+Df Model:                          41                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Ones                  0.2956      0.228      1.299      0.195      -0.152       0.743
+NEMScr                0.0007      0.001      0.739      0.460      -0.001       0.002
+Ranking              -0.0005      0.001     -0.724      0.469      -0.002       0.001
+LangScr               0.0003      0.000      1.267      0.206      -0.000       0.001
+S1_DRP                0.0339      0.019      1.805      0.072      -0.003       0.071
+S1_BAD                0.0158      0.020      0.791      0.429      -0.023       0.055
+S1_CVL               -0.0046      0.006     -0.760      0.448      -0.016       0.007
+S1_GRD_1TO19          0.0668      0.027      2.433      0.015       0.013       0.121
+S1_GRD_2TO29          0.0380      0.025      1.532      0.126      -0.011       0.087
+S1_GRD_3TO39          0.0313      0.017      1.819      0.070      -0.003       0.065
+S1_GRD_4TO49         -0.0284      0.015     -1.888      0.060      -0.058       0.001
+S1_GRD_6TO7           0.0294      0.024      1.205      0.229      -0.019       0.077
+S1_BEST_GRD          -0.0015      0.003     -0.591      0.555      -0.007       0.004
+S2_BAD                0.0128      0.012      1.091      0.276      -0.010       0.036
+S2_CVL               -0.0326      0.020     -1.668      0.096      -0.071       0.006
+S2_GRD_1TO19         -0.0578      0.032     -1.827      0.068      -0.120       0.004
+S2_GRD_3TO39         -0.0523      0.018     -2.833      0.005      -0.089      -0.016
+S2_GRD_4TO49         -0.0725      0.017     -4.321      0.000      -0.105      -0.040
+S2_GRD_5TO59         -0.0550      0.019     -2.950      0.003      -0.092      -0.018
+S2_GRD_6TO7          -0.0587      0.027     -2.172      0.030      -0.112      -0.006
+S2_BEST_GRD          -0.0022      0.002     -0.961      0.337      -0.007       0.002
+S2_VS_S1             -0.0024      0.003     -0.820      0.412      -0.008       0.003
+SchoolRegion_1       -0.1146      0.121     -0.944      0.346      -0.353       0.124
+SchoolRegion_2        0.3790      0.174      2.178      0.030       0.037       0.721
+SchoolRegion_3        0.2056      0.143      1.439      0.151      -0.075       0.486
+SchoolRegion_5        0.0857      0.127      0.674      0.501      -0.164       0.335
+SchoolRegion_6        0.1459      0.145      1.004      0.316      -0.140       0.431
+SchoolRegion_7       -0.2285      0.152     -1.506      0.133      -0.527       0.070
+SchoolRegion_9       -0.1848      0.174     -1.064      0.288      -0.526       0.156
+SchoolRegion_12       0.2659      0.281      0.947      0.344      -0.286       0.818
+SchoolRegion_13       0.3834      0.348      1.102      0.271      -0.300       1.067
+EdTypeCode_1          0.0940      0.086      1.090      0.276      -0.075       0.263
+EdTypeCode_2          0.0718      0.083      0.869      0.385      -0.091       0.234
+SchoolType_2         -0.1236      0.035     -3.511      0.000      -0.193      -0.054
+SchoolType_4         -0.1298      0.205     -0.633      0.527      -0.533       0.273
+MotherEd_1           -0.0441      0.054     -0.816      0.415      -0.150       0.062
+MotherEd_3           -0.0524      0.039     -1.348      0.178      -0.129       0.024
+MotherEd_4           -0.0641      0.065     -0.978      0.329      -0.193       0.065
+MotherEd_5           -0.1431      0.086     -1.662      0.097      -0.312       0.026
+MotherEd_7            0.1245      0.068      1.842      0.066      -0.008       0.257
+Campus_1              0.1972      0.144      1.371      0.171      -0.085       0.480
+PostulationType_1     0.1268      0.079      1.610      0.108      -0.028       0.282
+==============================================================================
+Omnibus:                       32.729   Durbin-Watson:                   1.924
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               50.082
+Skew:                           0.459   Prob(JB):                     1.33e-11
+Kurtosis:                       4.181   Cond. No.                     2.28e+04
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 2.28e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.

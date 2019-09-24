@@ -1,0 +1,30 @@
+Columns on Logic:
+SchoolRegion_2/SchoolRegion_3/SchoolRegion_6/PostulationType_1
+                                 OLS Regression Results                                
+=======================================================================================
+Dep. Variable:               Desertor   R-squared (uncentered):                   0.322
+Model:                            OLS   Adj. R-squared (uncentered):              0.316
+Method:                 Least Squares   F-statistic:                              50.61
+Date:                Mon, 23 Sep 2019   Prob (F-statistic):                    6.77e-43
+Time:                        22:11:28   Log-Likelihood:                         -330.70
+No. Observations:                 537   AIC:                                      671.4
+Df Residuals:                     532   BIC:                                      692.8
+Df Model:                           5                                                  
+Covariance Type:            nonrobust                                                  
+=====================================================================================
+                        coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+SchoolRegion_2        0.4575      0.226      2.025      0.043       0.014       0.901
+SchoolRegion_3        0.4332      0.185      2.347      0.019       0.071       0.796
+SchoolRegion_6        0.4364      0.171      2.545      0.011       0.100       0.773
+SchoolType_2         -0.0818      0.044     -1.879      0.061      -0.167       0.004
+PostulationType_1     0.3129      0.023     13.612      0.000       0.268       0.358
+==============================================================================
+Omnibus:                      202.970   Durbin-Watson:                   1.907
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               90.428
+Skew:                           0.853   Prob(JB):                     2.31e-20
+Kurtosis:                       1.935   Cond. No.                         11.7
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

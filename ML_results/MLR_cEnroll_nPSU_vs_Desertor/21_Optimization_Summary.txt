@@ -1,0 +1,40 @@
+Columns on Logic:
+Ones/NEMScr/LangScr/MathScr/SchoolRegion_1/SchoolRegion_7/SchoolRegion_9/SchoolRegion_11/SchoolType_2/MotherEd_4/MotherEd_5/PostulationType_1
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Desertor   R-squared:                       0.123
+Model:                            OLS   Adj. R-squared:                  0.103
+Method:                 Least Squares   F-statistic:                     6.134
+Date:                Mon, 23 Sep 2019   Prob (F-statistic):           3.93e-10
+Time:                        22:11:32   Log-Likelihood:                -305.62
+No. Observations:                 537   AIC:                             637.2
+Df Residuals:                     524   BIC:                             693.0
+Df Model:                          12                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Ones                  1.5215      0.283      5.371      0.000       0.965       2.078
+NEMScr               -0.0006      0.000     -2.260      0.024      -0.001   -7.68e-05
+LangScr               0.0010      0.000      2.924      0.004       0.000       0.002
+MathScr              -0.0023      0.000     -5.166      0.000      -0.003      -0.001
+SchoolRegion_1       -0.3192      0.164     -1.944      0.052      -0.642       0.003
+SchoolRegion_7       -0.3121      0.084     -3.721      0.000      -0.477      -0.147
+SchoolRegion_9       -0.4683      0.225     -2.082      0.038      -0.910      -0.026
+SchoolRegion_11      -0.2034      0.060     -3.375      0.001      -0.322      -0.085
+SchoolType_2         -0.0919      0.045     -2.045      0.041      -0.180      -0.004
+MotherEd_3           -0.0875      0.047     -1.853      0.064      -0.180       0.005
+MotherEd_4           -0.1763      0.082     -2.154      0.032      -0.337      -0.016
+MotherEd_5           -0.2130      0.109     -1.959      0.051      -0.427       0.001
+PostulationType_1     0.1950      0.082      2.385      0.017       0.034       0.356
+==============================================================================
+Omnibus:                      130.461   Durbin-Watson:                   1.897
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               66.545
+Skew:                           0.714   Prob(JB):                     3.55e-15
+Kurtosis:                       2.033   Cond. No.                     1.48e+04
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.48e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.

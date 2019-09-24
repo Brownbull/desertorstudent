@@ -1,0 +1,52 @@
+Columns on Logic:
+Ones/LangScr/S1_DRP/S1_GRD_1TO19/S1_GRD_2TO29/S1_GRD_3TO39/S1_GRD_4TO49/S2_BAD/S2_CVL/S2_GRD_1TO19/S2_GRD_3TO39/S2_GRD_4TO49/S2_GRD_5TO59/S2_GRD_6TO7/S2_BEST_GRD/SchoolRegion_2/SchoolRegion_3/SchoolRegion_7/SchoolRegion_9/SchoolType_2/MotherEd_5/MotherEd_7/Campus_1/PostulationType_1
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Desertor   R-squared:                       0.501
+Model:                            OLS   Adj. R-squared:                  0.478
+Method:                 Least Squares   F-statistic:                     21.44
+Date:                Mon, 23 Sep 2019   Prob (F-statistic):           2.39e-62
+Time:                        22:11:26   Log-Likelihood:                -154.13
+No. Observations:                 537   AIC:                             358.3
+Df Residuals:                     512   BIC:                             465.4
+Df Model:                          24                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Ones                  0.3818      0.165      2.307      0.021       0.057       0.707
+LangScr               0.0004      0.000      1.492      0.136      -0.000       0.001
+S1_DRP                0.0270      0.013      2.099      0.036       0.002       0.052
+S1_GRD_1TO19          0.0537      0.025      2.171      0.030       0.005       0.102
+S1_GRD_2TO29          0.0251      0.019      1.346      0.179      -0.012       0.062
+S1_GRD_3TO39          0.0207      0.014      1.442      0.150      -0.007       0.049
+S1_GRD_4TO49         -0.0366      0.013     -2.774      0.006      -0.062      -0.011
+S1_GRD_6TO7           0.0203      0.020      1.015      0.311      -0.019       0.060
+S2_BAD                0.0123      0.011      1.128      0.260      -0.009       0.034
+S2_CVL               -0.0315      0.019     -1.633      0.103      -0.069       0.006
+S2_GRD_1TO19         -0.0529      0.030     -1.773      0.077      -0.112       0.006
+S2_GRD_3TO39         -0.0545      0.018     -3.018      0.003      -0.090      -0.019
+S2_GRD_4TO49         -0.0765      0.016     -4.875      0.000      -0.107      -0.046
+S2_GRD_5TO59         -0.0593      0.017     -3.523      0.000      -0.092      -0.026
+S2_GRD_6TO7          -0.0623      0.026     -2.390      0.017      -0.113      -0.011
+S2_BEST_GRD          -0.0038      0.001     -2.720      0.007      -0.006      -0.001
+SchoolRegion_2        0.3983      0.172      2.318      0.021       0.061       0.736
+SchoolRegion_3        0.1836      0.138      1.331      0.184      -0.087       0.455
+SchoolRegion_7       -0.3640      0.120     -3.036      0.003      -0.599      -0.128
+SchoolRegion_9       -0.2076      0.170     -1.220      0.223      -0.542       0.127
+SchoolType_2         -0.1195      0.034     -3.567      0.000      -0.185      -0.054
+MotherEd_5           -0.1127      0.083     -1.353      0.177      -0.276       0.051
+MotherEd_7            0.1564      0.065      2.418      0.016       0.029       0.283
+Campus_1              0.3215      0.111      2.902      0.004       0.104       0.539
+PostulationType_1     0.1326      0.064      2.088      0.037       0.008       0.257
+==============================================================================
+Omnibus:                       33.239   Durbin-Watson:                   1.952
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               49.536
+Skew:                           0.474   Prob(JB):                     1.75e-11
+Kurtosis:                       4.147   Cond. No.                     6.97e+03
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 6.97e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.

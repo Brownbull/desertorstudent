@@ -1,0 +1,33 @@
+Columns on Logic:
+Ones/NEMScr/Ranking/LangScr/MathScr
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Desertor   R-squared:                       0.070
+Model:                            OLS   Adj. R-squared:                  0.061
+Method:                 Least Squares   F-statistic:                     7.970
+Date:                Mon, 23 Sep 2019   Prob (F-statistic):           2.95e-07
+Time:                        22:11:29   Log-Likelihood:                -321.48
+No. Observations:                 537   AIC:                             655.0
+Df Residuals:                     531   BIC:                             680.7
+Df Model:                           5                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Ones           1.5734      0.278      5.656      0.000       1.027       2.120
+NEMScr        -0.0020      0.001     -1.827      0.068      -0.004       0.000
+Ranking        0.0014      0.001      1.504      0.133      -0.000       0.003
+LangScr        0.0009      0.000      2.509      0.012       0.000       0.002
+MathScr       -0.0023      0.001     -4.348      0.000      -0.003      -0.001
+ScienScr      -0.0001      0.000     -0.337      0.737      -0.001       0.001
+==============================================================================
+Omnibus:                      196.471   Durbin-Watson:                   1.882
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               80.384
+Skew:                           0.784   Prob(JB):                     3.51e-18
+Kurtosis:                       1.935   Cond. No.                     1.81e+04
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.81e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.

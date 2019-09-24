@@ -1,0 +1,7 @@
+Model:MLR_num_PSU_vs_Desertor 
+        x: Ones, LangScr, MathScr
+        y:   Desertor
+      Accuracy:    0.6944444444444444
+     Precision:     0.972972972972973
+        Recall:    0.6990291262135923
+      F1_Score:    0.8135593220338985

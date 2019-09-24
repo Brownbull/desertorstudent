@@ -1,0 +1,51 @@
+Columns on Logic:
+Ones/NEMScr/Ranking/LangScr/MathScr/SchoolRegion_1/SchoolRegion_2/SchoolRegion_3/SchoolRegion_5/SchoolRegion_6/SchoolRegion_7/SchoolRegion_9/SchoolRegion_11/SchoolRegion_13/EdTypeCode_2/SchoolType_2/SchoolType_4/MotherEd_1/MotherEd_3/MotherEd_4/MotherEd_5/MotherEd_7/PostulationType_1
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Desertor   R-squared:                       0.150
+Model:                            OLS   Adj. R-squared:                  0.112
+Method:                 Least Squares   F-statistic:                     3.949
+Date:                Mon, 23 Sep 2019   Prob (F-statistic):           4.29e-09
+Time:                        22:11:32   Log-Likelihood:                -297.14
+No. Observations:                 537   AIC:                             642.3
+Df Residuals:                     513   BIC:                             745.1
+Df Model:                          23                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Ones                  1.4240      0.297      4.798      0.000       0.841       2.007
+NEMScr               -0.0020      0.001     -1.772      0.077      -0.004       0.000
+Ranking               0.0011      0.001      1.222      0.222      -0.001       0.003
+LangScr               0.0010      0.000      2.934      0.004       0.000       0.002
+MathScr              -0.0021      0.000     -4.303      0.000      -0.003      -0.001
+SchoolRegion_1       -0.1893      0.171     -1.110      0.268      -0.524       0.146
+SchoolRegion_2        0.3652      0.228      1.603      0.110      -0.082       0.813
+SchoolRegion_3        0.3151      0.192      1.640      0.102      -0.062       0.693
+SchoolRegion_5        0.1609      0.171      0.941      0.347      -0.175       0.497
+SchoolRegion_6        0.2199      0.182      1.210      0.227      -0.137       0.577
+SchoolRegion_7       -0.2006      0.097     -2.070      0.039      -0.391      -0.010
+SchoolRegion_9       -0.3358      0.229     -1.465      0.144      -0.786       0.115
+SchoolRegion_11      -0.0987      0.077     -1.283      0.200      -0.250       0.052
+SchoolRegion_13       0.4856      0.442      1.099      0.272      -0.383       1.354
+EdTypeCode_2          0.1295      0.103      1.262      0.208      -0.072       0.331
+SchoolType_2         -0.1232      0.066     -1.855      0.064      -0.254       0.007
+SchoolType_3         -0.0473      0.059     -0.802      0.423      -0.163       0.069
+SchoolType_4         -0.2164      0.261     -0.831      0.407      -0.728       0.296
+MotherEd_1           -0.1096      0.069     -1.590      0.112      -0.245       0.026
+MotherEd_3           -0.0938      0.049     -1.910      0.057      -0.190       0.003
+MotherEd_4           -0.1859      0.083     -2.248      0.025      -0.348      -0.023
+MotherEd_5           -0.2379      0.110     -2.171      0.030      -0.453      -0.023
+MotherEd_7            0.0879      0.086      1.026      0.305      -0.080       0.256
+PostulationType_1     0.2063      0.083      2.488      0.013       0.043       0.369
+==============================================================================
+Omnibus:                       97.237   Durbin-Watson:                   1.883
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               64.338
+Skew:                           0.728   Prob(JB):                     1.07e-14
+Kurtosis:                       2.132   Cond. No.                     2.67e+04
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 2.67e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.

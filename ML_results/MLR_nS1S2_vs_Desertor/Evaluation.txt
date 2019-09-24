@@ -1,0 +1,7 @@
+Model:MLR_nS1S2_vs_Desertor 
+        x: Ones, S1_GRD_4TO49, S1_GRD_5TO59, S2_GRD_3TO39, S2_GRD_4TO49, S2_GRD_5TO59, S2_GRD_6TO7, S2_BEST_GRD
+        y:   Desertor
+      Accuracy:    0.7592592592592593
+     Precision:    0.8513513513513513
+        Recall:    0.8076923076923077
+      F1_Score:    0.8289473684210527

@@ -1,0 +1,8 @@
+grades_data columns with null values:
+                           Rut                     0
+                    SubjStatus                     0
+                          Year                     0
+                        Period                     0
+                  SubjValidate                     0
+                         Grade                     0
+                SubjHomologate                     0

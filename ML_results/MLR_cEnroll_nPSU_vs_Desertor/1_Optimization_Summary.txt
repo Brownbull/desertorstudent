@@ -1,0 +1,60 @@
+Columns on Logic:
+Ones/NEMScr/Ranking/LangScr/MathScr/SchoolRegion_1/SchoolRegion_2/SchoolRegion_3/SchoolRegion_4/SchoolRegion_5/SchoolRegion_6/SchoolRegion_7/SchoolRegion_8/SchoolRegion_9/SchoolRegion_10/SchoolRegion_11/SchoolRegion_12/SchoolRegion_13/EdTypeCode_1/EdTypeCode_2/SchoolType_1/SchoolType_2/SchoolType_3/SchoolType_4/MotherEd_1/MotherEd_3/MotherEd_4/MotherEd_5/MotherEd_6/MotherEd_7/Campus_1/PostulationType_1
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Desertor   R-squared:                       0.153
+Model:                            OLS   Adj. R-squared:                  0.099
+Method:                 Least Squares   F-statistic:                     2.840
+Date:                Mon, 23 Sep 2019   Prob (F-statistic):           7.75e-07
+Time:                        22:11:31   Log-Likelihood:                -296.39
+No. Observations:                 537   AIC:                             658.8
+Df Residuals:                     504   BIC:                             800.2
+Df Model:                          32                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Ones                  1.5053      0.433      3.480      0.001       0.655       2.355
+NEMScr               -0.0021      0.001     -1.768      0.078      -0.004       0.000
+Ranking               0.0012      0.001      1.249      0.212      -0.001       0.003
+LangScr               0.0010      0.000      2.836      0.005       0.000       0.002
+MathScr              -0.0021      0.001     -3.929      0.000      -0.003      -0.001
+ScienScr            1.51e-05      0.000      0.036      0.971      -0.001       0.001
+SchoolRegion_1       -0.2375      0.347     -0.684      0.494      -0.919       0.444
+SchoolRegion_2        0.3257      0.378      0.862      0.389      -0.416       1.068
+SchoolRegion_3        0.2642      0.357      0.739      0.460      -0.438       0.966
+SchoolRegion_4       -0.0422      0.320     -0.132      0.895      -0.671       0.586
+SchoolRegion_5        0.1237      0.348      0.356      0.722      -0.560       0.807
+SchoolRegion_6        0.1974      0.361      0.546      0.585      -0.512       0.907
+SchoolRegion_7       -0.2096      0.366     -0.572      0.567      -0.929       0.510
+SchoolRegion_8       -0.1530      0.407     -0.376      0.707      -0.953       0.647
+SchoolRegion_9       -0.3804      0.380     -1.000      0.318      -1.128       0.367
+SchoolRegion_10      -0.2870      0.534     -0.537      0.591      -1.337       0.763
+SchoolRegion_11      -0.1456      0.309     -0.471      0.638      -0.754       0.462
+SchoolRegion_12       0.1625      0.481      0.338      0.736      -0.783       1.108
+SchoolRegion_13       0.4581      0.540      0.848      0.397      -0.603       1.519
+EdTypeCode_1         -0.0555      0.112     -0.497      0.620      -0.275       0.164
+EdTypeCode_2          0.1288      0.106      1.216      0.224      -0.079       0.337
+SchoolType_1         -0.0506      0.113     -0.448      0.655      -0.273       0.171
+SchoolType_2         -0.1492      0.097     -1.543      0.124      -0.339       0.041
+SchoolType_3         -0.0728      0.091     -0.795      0.427      -0.253       0.107
+SchoolType_4         -0.2183      0.282     -0.775      0.439      -0.771       0.335
+MotherEd_1           -0.1146      0.072     -1.602      0.110      -0.255       0.026
+MotherEd_3           -0.0973      0.052     -1.877      0.061      -0.199       0.005
+MotherEd_4           -0.1985      0.085     -2.330      0.020      -0.366      -0.031
+MotherEd_5           -0.2439      0.112     -2.181      0.030      -0.464      -0.024
+MotherEd_6           -0.0290      0.066     -0.442      0.659      -0.158       0.100
+MotherEd_7            0.0839      0.088      0.957      0.339      -0.088       0.256
+Campus_1             -0.0367      0.187     -0.196      0.844      -0.404       0.331
+PostulationType_1     0.2068      0.085      2.422      0.016       0.039       0.375
+==============================================================================
+Omnibus:                       95.074   Durbin-Watson:                   1.887
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               64.249
+Skew:                           0.730   Prob(JB):                     1.12e-14
+Kurtosis:                       2.141   Cond. No.                     7.91e+04
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 7.91e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.

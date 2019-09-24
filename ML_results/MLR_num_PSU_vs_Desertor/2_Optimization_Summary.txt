@@ -1,0 +1,31 @@
+Columns on Logic:
+Ones/LangScr/MathScr
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Desertor   R-squared:                       0.066
+Model:                            OLS   Adj. R-squared:                  0.060
+Method:                 Least Squares   F-statistic:                     12.49
+Date:                Mon, 23 Sep 2019   Prob (F-statistic):           6.63e-08
+Time:                        22:11:29   Log-Likelihood:                -322.67
+No. Observations:                 537   AIC:                             653.3
+Df Residuals:                     533   BIC:                             670.5
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Ones           1.5483      0.275      5.635      0.000       1.009       2.088
+NEMScr        -0.0004      0.000     -1.586      0.113      -0.001    9.86e-05
+LangScr        0.0009      0.000      2.600      0.010       0.000       0.002
+MathScr       -0.0026      0.000     -5.681      0.000      -0.003      -0.002
+==============================================================================
+Omnibus:                      205.082   Durbin-Watson:                   1.881
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               81.917
+Skew:                           0.792   Prob(JB):                     1.63e-18
+Kurtosis:                       1.926   Cond. No.                     1.39e+04
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.39e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.

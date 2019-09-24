@@ -1,0 +1,5 @@
+grades_data columns with null values:
+                           Rut                     0
+                          Year                     0
+                        Period                     0
+                   Performance                     0

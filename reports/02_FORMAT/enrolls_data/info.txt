@@ -1,0 +1,18 @@
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 537 entries, 11 to 237
+Data columns (total 13 columns):
+EntryYear          537 non-null int64
+Rut                537 non-null int64
+Campus             537 non-null object
+PostulationType    537 non-null object
+NEMScr             522 non-null float64
+Ranking            529 non-null float64
+LangScr            523 non-null float64
+MathScr            523 non-null float64
+ScienScr           519 non-null float64
+SchoolRegion       532 non-null object
+EdTypeCode         533 non-null object
+SchoolType         532 non-null object
+MotherEd           352 non-null float64
+dtypes: float64(6), int64(2), object(5)
+memory usage: 48.2+ KB

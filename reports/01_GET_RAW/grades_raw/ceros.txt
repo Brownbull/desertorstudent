@@ -1,0 +1,15 @@
+grades_raw columns with null values:
+                           Rut                     0
+                  Plan Estudio                     0
+                   Nombre Plan                     0
+                    Asignatura                     0
+             Nombre Asignatura                     0
+            Motivo Inscripción                     0
+            Descripción Motivo                     0
+                        Status                     0
+                 Año Académico                     0
+                       Periodo                     0
+                 Convalidación                     0
+                       Sección                     0
+                          Nota                     0
+                    Homologado                     0

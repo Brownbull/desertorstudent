@@ -1,0 +1,49 @@
+Columns on Logic:
+Ones/S1_DRP/S1_GRD_1TO19/S1_GRD_2TO29/S1_GRD_3TO39/S1_GRD_4TO49/S1_GRD_6TO7/S1_BEST_GRD/S2_BAD/S2_CVL/S2_GRD_1TO19/S2_GRD_3TO39/S2_GRD_4TO49/S2_GRD_5TO59/S2_GRD_6TO7/S2_VS_S1/SchoolRegion_2/SchoolRegion_7/SchoolType_2/MotherEd_5/MotherEd_7/Campus_1/PostulationType_1
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Desertor   R-squared:                       0.497
+Model:                            OLS   Adj. R-squared:                  0.474
+Method:                 Least Squares   F-statistic:                     22.01
+Date:                Mon, 23 Sep 2019   Prob (F-statistic):           4.72e-62
+Time:                        22:11:35   Log-Likelihood:                -156.58
+No. Observations:                 537   AIC:                             361.2
+Df Residuals:                     513   BIC:                             464.0
+Df Model:                          23                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Ones                  0.5524      0.109      5.077      0.000       0.339       0.766
+S1_DRP                0.0301      0.014      2.099      0.036       0.002       0.058
+S1_GRD_1TO19          0.0616      0.025      2.495      0.013       0.013       0.110
+S1_GRD_2TO29          0.0475      0.021      2.228      0.026       0.006       0.089
+S1_GRD_3TO39          0.0293      0.016      1.863      0.063      -0.002       0.060
+S1_GRD_4TO49         -0.0357      0.014     -2.539      0.011      -0.063      -0.008
+S1_GRD_6TO7           0.0339      0.024      1.422      0.156      -0.013       0.081
+S1_BEST_GRD          -0.0036      0.002     -1.860      0.063      -0.007       0.000
+S2_BAD                0.0156      0.011      1.401      0.162      -0.006       0.037
+S2_CVL               -0.0266      0.019     -1.389      0.165      -0.064       0.011
+S2_GRD_1TO19         -0.0717      0.028     -2.539      0.011      -0.127      -0.016
+S2_GRD_3TO39         -0.0630      0.017     -3.732      0.000      -0.096      -0.030
+S2_GRD_4TO49         -0.0789      0.016     -4.897      0.000      -0.110      -0.047
+S2_GRD_5TO59         -0.0595      0.018     -3.313      0.001      -0.095      -0.024
+S2_GRD_6TO7          -0.0718      0.024     -2.975      0.003      -0.119      -0.024
+S2_VS_S1             -0.0043      0.002     -2.338      0.020      -0.008      -0.001
+SchoolRegion_2        0.3822      0.172      2.219      0.027       0.044       0.721
+SchoolRegion_3        0.1725      0.139      1.244      0.214      -0.100       0.445
+SchoolRegion_7       -0.3317      0.119     -2.793      0.005      -0.565      -0.098
+SchoolType_2         -0.1235      0.033     -3.699      0.000      -0.189      -0.058
+MotherEd_5           -0.1095      0.084     -1.311      0.191      -0.274       0.055
+MotherEd_7            0.1537      0.065      2.370      0.018       0.026       0.281
+Campus_1              0.2995      0.110      2.727      0.007       0.084       0.515
+PostulationType_1     0.1451      0.064      2.262      0.024       0.019       0.271
+==============================================================================
+Omnibus:                       35.383   Durbin-Watson:                   1.941
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               50.994
+Skew:                           0.511   Prob(JB):                     8.45e-12
+Kurtosis:                       4.111   Cond. No.                         694.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

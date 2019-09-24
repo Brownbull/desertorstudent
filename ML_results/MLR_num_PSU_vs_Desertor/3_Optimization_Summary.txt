@@ -1,0 +1,30 @@
+Columns on Logic:
+Ones/LangScr/MathScr
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Desertor   R-squared:                       0.061
+Model:                            OLS   Adj. R-squared:                  0.058
+Method:                 Least Squares   F-statistic:                     17.43
+Date:                Mon, 23 Sep 2019   Prob (F-statistic):           4.65e-08
+Time:                        22:11:29   Log-Likelihood:                -323.93
+No. Observations:                 537   AIC:                             653.9
+Df Residuals:                     534   BIC:                             666.7
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Ones           1.4135      0.262      5.402      0.000       0.899       1.927
+LangScr        0.0008      0.000      2.435      0.015       0.000       0.002
+MathScr       -0.0026      0.000     -5.901      0.000      -0.004      -0.002
+==============================================================================
+Omnibus:                      201.481   Durbin-Watson:                   1.884
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               83.136
+Skew:                           0.802   Prob(JB):                     8.86e-19
+Kurtosis:                       1.931   Cond. No.                     1.11e+04
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.11e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.

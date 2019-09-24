@@ -1,0 +1,33 @@
+Columns on Logic:
+Ones/LangScr/MathScr/SchoolRegion_7/SchoolRegion_11/PostulationType_1
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Desertor   R-squared:                       0.085
+Model:                            OLS   Adj. R-squared:                  0.077
+Method:                 Least Squares   F-statistic:                     9.913
+Date:                Mon, 23 Sep 2019   Prob (F-statistic):           4.45e-09
+Time:                        22:11:32   Log-Likelihood:                -316.95
+No. Observations:                 537   AIC:                             645.9
+Df Residuals:                     531   BIC:                             671.6
+Df Model:                           5                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Ones                  1.3302      0.274      4.863      0.000       0.793       1.868
+LangScr               0.0009      0.000      2.669      0.008       0.000       0.002
+MathScr              -0.0026      0.000     -5.947      0.000      -0.004      -0.002
+SchoolRegion_7       -0.2435      0.082     -2.980      0.003      -0.404      -0.083
+SchoolRegion_11      -0.1197      0.056     -2.136      0.033      -0.230      -0.010
+PostulationType_1     0.1732      0.081      2.125      0.034       0.013       0.333
+==============================================================================
+Omnibus:                      162.906   Durbin-Watson:                   1.888
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               77.238
+Skew:                           0.777   Prob(JB):                     1.69e-17
+Kurtosis:                       1.982   Cond. No.                     1.18e+04
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.18e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.

@@ -1,0 +1,25 @@
+enrolls_raw columns with null values:
+                   año ingreso                     0
+                       TIPO ID                     1
+                           RUT                     0
+                       ID PLAN                     0
+                     COD DEMRE                     0
+                       CARRERA                     0
+                          SEDE                     0
+              TIPO POSTULACION                     0
+                  TIPO INGRESO                   473
+                           NEM                     3
+                      PTJE NEM                    15
+                       RANKING                     8
+                     PTJE LENG                    14
+                      PTJE MAT                    14
+                     PTJE CIEN                    18
+                     PTJE HIST                    41
+                 PREFEENCIA UM                     4
+                    PREF DEMRE                    47
+                COMUNA COLEGIO                     5
+                        REGION                     5
+                  COD TIP EDU.                     4
+                TIPO EDUCACION                     5
+                  TIPO COLEGIO                     5
+                 EDU. MADRE ID                   185
