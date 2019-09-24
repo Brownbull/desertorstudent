@@ -62,6 +62,7 @@ saveFullDF(X_enc, finishedStage, idx)
 # CALL ML MODELS
 from env.Include.model.SLR import *
 from env.Include.model.MLR import *
+from env.Include.model.DT import *
 
 requestedModels = mlCfg['models']
 trainedModels = {}
@@ -75,9 +76,9 @@ Y = dataset[y]
 # TRAIN MODELS
 for rModel in requestedModels:
   modelType = rModel['type']
+  print("Processing model type:", modelType)
   # SLR
   if modelType in ['slr', 'SLR']:
-    print("Processing model type:", modelType)
     if checkIfexists('x', rModel) and checkIfexists('y', rModel) and checkIfexists('show', rModel):
       # TRAIN
       model_SLR, thisModelName, test_y, pred_y = SLR_train(X_enc, rModel)
@@ -98,7 +99,6 @@ for rModel in requestedModels:
   
   # MLR
   elif modelType in ['mlr', 'MLR']:
-    print("Processing model type:", modelType)
     if checkIfexists('x', rModel) and checkIfexists('y', rModel) and checkIfexists('show', rModel) and checkIfexists('xCategorical', rModel) and checkIfexists('xColNames', rModel):
       # TRAIN
       model_MLR, thisModelName, test_y, pred_y, Xcols, cols2DropDesc = MLR_train(X, Y, rModel)
@@ -119,6 +119,26 @@ for rModel in requestedModels:
       # Conf Error
       print("Config in error for model: " + thisModelName)
 
+  # Decision Tree
+  if modelType in ['dt', 'DT']:
+    if checkIfexists('x', rModel) and checkIfexists('y', rModel) and checkIfexists('show', rModel):
+      # TRAIN
+      model_DT, thisModelName, test_y, pred_y, Xcols, X_enc  = DT_train(X, Y, rModel)
+      # STORE RESULTS
+      trainedModels[thisModelName] = {
+        'config': rModel,
+        'model': model_DT,
+        'x' : rModel['x'], 
+        'y' : rModel['y'],
+        'test_y' : test_y,
+        'pred_y': pred_y
+      }
+      # EVALUATE
+      evaluateCLModel(thisModelName, model_DT, X_enc[Xcols], Y)
+    else:
+      # Conf Error
+      print("Config in error for model: " + thisModelName)
+ 
   # Model not listed    
   else:
     print("Not Recognized Model: " + modelType)
