@@ -8,10 +8,7 @@ from env.Include.model.tools import *
 from env.Include.model.processing import *
 from env.Include.model.visual import *
 
-def MLR_train(thisModelName, X, Y, config):
-  # Model Name
-  thisModelName = "MLR_" + config['xColNames'] + "_vs_" + config['y']
-
+def MLR_train(modelName, X, Y, config):
   # Select Features
   X = X[config['x']]
   # Select Target 
@@ -26,8 +23,8 @@ def MLR_train(thisModelName, X, Y, config):
   X_enc_cols = list(X_enc.columns.values)
 
   # MLR Optimize
-  Xcols, cols2DropDesc = OLS_optimizeFeatures(X_enc, X_enc_cols, y, thisModelName, config)
-  # Xcols, cols2DropDesc = MLR_optimizeFeatures(X, config['x'], y, thisModelName, config)
+  Xcols, cols2DropDesc = OLS_optimizeFeatures(X_enc, X_enc_cols, y, modelName, config)
+  # Xcols, cols2DropDesc = MLR_optimizeFeatures(X, config['x'], y, modelName, config)
   # Set Optimal cols
   X_enc = X_enc[Xcols]
 
@@ -49,7 +46,7 @@ def MLR_train(thisModelName, X, Y, config):
   # Show graph
   df = X_enc
   df[config['y']] = y
-  showCorrHeatMap(df, thisModelName, config['xColNames'], config['y'], config['show'])
+  showCorrHeatMap(df, modelName, config['xColNames'], config['y'], config['show'])
   
   return {
     'config': config,

@@ -68,6 +68,7 @@ Y = dataset[mlCfg['Target']]
 from env.Include.model.SLR import *
 from env.Include.model.MLR import *
 from env.Include.model.DT import *
+from env.Include.model.Kmeans import *
 
 reqModls = mlCfg['models']
 traindMdls = {}
@@ -116,11 +117,27 @@ for config in reqModls:
       # Model Name
       modelName = "DT_" + config['xColNames'] + "_vs_" + config['y']
       # TRAIN
-      traindMdls[modelName]  = DT_train(X, Y, config)
+      traindMdls[modelName]  = DT_train(modelName, X, Y, config)
       # EVALUATE
       evaluateRegModel(
         traindMdls[modelName]['test_y'], traindMdls[modelName]['pred_y'], 
         modelName, traindMdls[modelName])
+    else:
+      # Conf Error
+      print("Config in error for model: " + modelName)
+
+  # Kmeans
+  elif modelType in ['kmeans', 'Kmeans', 'KMEANS']:
+    # VALIDATE CONFG
+    if checkIfexists('x', config) and checkIfexists('y', config) and checkIfexists('show', config):
+      # Model Name
+      modelName = "Kmeans_" + config['x'] + "_vs_" + config['y']
+      # TRAIN
+      # traindMdls[modelName] = KMeans_train(modelName, dataset, config)
+      # # EVALUATE
+      # evaluateRegModel(
+      #   traindMdls[modelName]['test_y'], traindMdls[modelName]['pred_y'], 
+        # modelName, traindMdls[modelName])
     else:
       # Conf Error
       print("Config in error for model: " + modelName)

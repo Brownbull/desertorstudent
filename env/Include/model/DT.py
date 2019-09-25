@@ -8,10 +8,7 @@ from env.Include.model.tools import *
 from env.Include.model.processing import *
 from env.Include.model.visual import *
 
-def DT_train(X, Y, config):
-  # Model Name
-  thisModelName = "DT_" + config['xColNames'] + "_vs_" + config['y']
-
+def DT_train(modelName, X, Y, config):
   # Select Features
   Xcols = config['x']
   X = X[Xcols]
@@ -28,7 +25,7 @@ def DT_train(X, Y, config):
 
   # MLR Optimize
   if config['Optimize']:
-    Xcols, cols2DropDesc = OLS_optimizeFeatures(X_enc, X_enc_cols, y, thisModelName, config)
+    Xcols, cols2DropDesc = OLS_optimizeFeatures(X_enc, X_enc_cols, y, modelName, config)
     X_enc = X_enc[Xcols]
 
   # Fixed split
@@ -49,7 +46,7 @@ def DT_train(X, Y, config):
   # SHOW GRAPH
   if config['show'] in ['inline', 'file']:
     # SET WRITE DIRECTORY
-    outDir = "ML_results/" + thisModelName
+    outDir = "ML_results/" + modelName
     if not Path(outDir).exists():
       os.makedirs(outDir)
     tree.export_graphviz(
@@ -61,7 +58,7 @@ def DT_train(X, Y, config):
     from subprocess import check_output
     check_output("dot -Tpng " + outDir + "/tree.dot > " + outDir + "/tree.png", shell=True)
 
-  # return classifier, thisModelName, test_y, pred_y, Xcols, X_enc
+  # return classifier, modelName, test_y, pred_y, Xcols, X_enc
   return {
     'config': config,
     'model': classifier,

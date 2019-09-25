@@ -6,7 +6,7 @@ Dep. Variable:               Desertor   R-squared:                       0.081
 Model:                            OLS   Adj. R-squared:                  0.058
 Method:                 Least Squares   F-statistic:                     3.523
 Date:                Wed, 25 Sep 2019   Prob (F-statistic):           2.67e-05
-Time:                        11:02:20   Log-Likelihood:                -318.37
+Time:                        11:08:38   Log-Likelihood:                -318.37
 No. Observations:                 537   AIC:                             664.7
 Df Residuals:                     523   BIC:                             724.7
 Df Model:                          13                                         
