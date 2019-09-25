@@ -3,10 +3,12 @@
 @author: Brownbull - Gabriel Carcamo - carcamo.gabriel@gmail.com
   SLR
 """
-from env.Include.model.imports_model import *
-from env.Include.model.operations import *
+from env.Include.model.imports import *
+from env.Include.model.tools import *
+from env.Include.model.processing import *
+from env.Include.model.visual import *
 
-def MLR_train(X, Y, config):
+def MLR_train(thisModelName, X, Y, config):
   # Model Name
   thisModelName = "MLR_" + config['xColNames'] + "_vs_" + config['y']
 
@@ -48,6 +50,12 @@ def MLR_train(X, Y, config):
   df = X_enc
   df[config['y']] = y
   showCorrHeatMap(df, thisModelName, config['xColNames'], config['y'], config['show'])
-
-  return regressor, thisModelName, test_y, pred_y, Xcols, cols2DropDesc
   
+  return {
+    'config': config,
+    'model': regressor,
+    'x' : Xcols, 
+    'y' : config['y'],
+    'test_y' : test_y,
+    'pred_y': pred_y
+  }

@@ -3,8 +3,10 @@
 @author: Brownbull - Gabriel Carcamo - carcamo.gabriel@gmail.com
   Decision Tree
 """
-from env.Include.model.imports_model import *
-from env.Include.model.operations import *
+from env.Include.model.imports import *
+from env.Include.model.tools import *
+from env.Include.model.processing import *
+from env.Include.model.visual import *
 
 def DT_train(X, Y, config):
   # Model Name
@@ -59,4 +61,12 @@ def DT_train(X, Y, config):
     from subprocess import check_output
     check_output("dot -Tpng " + outDir + "/tree.dot > " + outDir + "/tree.png", shell=True)
 
-  return classifier, thisModelName, test_y, pred_y, Xcols, X_enc
+  # return classifier, thisModelName, test_y, pred_y, Xcols, X_enc
+  return {
+    'config': config,
+    'model': classifier,
+    'x' : config['x'], 
+    'y' : config['y'],
+    'test_y' : test_y,
+    'pred_y': pred_y
+  }

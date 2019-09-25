@@ -4,13 +4,12 @@
 """
 # IMPORT LIBRARIES
 from env.Include.lib.functions import *
-from env.Include.model.operations import *
-from env.Include.model.imports_model import *
-import env.Include.model.features as x
-
-# define y variable aka target/outcome
-ID = ['Rut']
-y = 'Desertor'
+from env.Include.model.tools import *
+from env.Include.model.processing import *
+from env.Include.model.visual import *
+from env.Include.model.evaluate import *
+from env.Include.model.imports import *
+# import env.Include.model.features as x
 
 # CHECK ARGUMENTS
 parser = argparse.ArgumentParser(description='Main process of ML implementation to estimate rate of student desertion.')
@@ -31,7 +30,6 @@ timeStart = time.time()
 dtStart = datetime.fromtimestamp(timeStart)
 print("\nMain Script Start: " + str(dtStart) + "\n" + "-"*25 )
 
-
 # GET INPUT DATA
 if mlCfg['sample']:
   dataset = pd.read_csv(mlCfg['dataset'], nrows = mlCfg['sample'])
@@ -39,105 +37,93 @@ else:
   dataset = pd.read_csv(mlCfg['dataset'])
 
 # SET FEATURES
-X = dataset[ID + x.cat_enroll + x.num_PSU + x.num_S1 + x.num_S2]
+X = dataset[mlCfg['ID'] + mlCfg['cat_enroll'] + mlCfg['num_PSU'] + mlCfg['num_S1'] + mlCfg['num_S2']]
 # SET TARGET 
-Y = dataset[y]
+Y = dataset[mlCfg['Target']]
 
 # ENCODE DATA
-X_see = cat2Dummy(X, x.cat_enroll)
-X_bin = cat2Number(X, x.cat_enroll)
-X_enc = cat2Dummy(X_bin, x.cat_enroll)
+X_see = cat2Dummy(X, mlCfg['cat_enroll'])
+X_bin = cat2Number(X, mlCfg['cat_enroll'])
+X_enc = cat2Dummy(X_bin, mlCfg['cat_enroll'])
 
 # end stage
 finishedStage = "10_ENCODE"
 stageEnd(finishedStage, X_see, mlCfg['info'], mlCfg['debug'])
 stageEnd(finishedStage, X_bin, mlCfg['info'], mlCfg['debug'])
 stageEnd(finishedStage, X_enc, mlCfg['info'], mlCfg['debug'])
-# save data
+
+# STORE DATA
 idx = False
 saveFullDF(X_see, finishedStage, idx)
 saveFullDF(X_bin, finishedStage, idx)
 saveFullDF(X_enc, finishedStage, idx)
+
+# RESET 
+# SET FEATURES
+X = dataset[mlCfg['ID'] + mlCfg['cat_enroll'] + mlCfg['num_PSU'] + mlCfg['num_S1'] + mlCfg['num_S2']]
+# SET TARGET 
+Y = dataset[mlCfg['Target']]
 
 # CALL ML MODELS
 from env.Include.model.SLR import *
 from env.Include.model.MLR import *
 from env.Include.model.DT import *
 
-requestedModels = mlCfg['models']
-trainedModels = {}
-
-# RESET 
-# SET FEATURES
-X = dataset[ID + x.cat_enroll + x.num_PSU + x.num_S1 + x.num_S2]
-# SET TARGET 
-Y = dataset[y]
+reqModls = mlCfg['models']
+traindMdls = {}
 
 # TRAIN MODELS
-for rModel in requestedModels:
-  modelType = rModel['type']
+for config in reqModls:
+  modelType = config['type']
   print("Processing model type:", modelType)
   # SLR
   if modelType in ['slr', 'SLR']:
-    if checkIfexists('x', rModel) and checkIfexists('y', rModel) and checkIfexists('show', rModel):
+    # VALIDATE CONFG
+    if checkIfexists('x', config) and checkIfexists('y', config) and checkIfexists('show', config):
+      # Model Name
+      modelName = "SLR_" + config['x'] + "_vs_" + config['y']
       # TRAIN
-      model_SLR, thisModelName, test_y, pred_y = SLR_train(X_enc, rModel)
-      # STORE RESULTS
-      trainedModels[thisModelName] = {
-        'config': rModel,
-        'model': model_SLR,
-        'x' : rModel['x'], 
-        'y' : rModel['y'],
-        'test_y' : test_y,
-        'pred_y': pred_y
-      }
+      traindMdls[modelName] = SLR_train(modelName, X_enc, config)
       # EVALUATE
-      evaluateRegModel(test_y, pred_y, thisModelName, trainedModels[thisModelName])
+      evaluateRegModel(
+        traindMdls[modelName]['test_y'], traindMdls[modelName]['pred_y'], 
+        modelName, traindMdls[modelName])
     else:
       # Conf Error
-      print("Config in error for model: " + thisModelName)
+      print("Config in error for model: " + modelName)
   
   # MLR
   elif modelType in ['mlr', 'MLR']:
-    if checkIfexists('x', rModel) and checkIfexists('y', rModel) and checkIfexists('show', rModel) and checkIfexists('xCategorical', rModel) and checkIfexists('xColNames', rModel):
+    # VALIDATE CONFG
+    if checkIfexists('x', config) and checkIfexists('y', config) and checkIfexists('show', config) and checkIfexists('xCategorical', config) and checkIfexists('xColNames', config):
+      # Model Name
+      modelName = "MLR_" + config['xColNames'] + "_vs_" + config['y']
       # TRAIN
-      model_MLR, thisModelName, test_y, pred_y, Xcols, cols2DropDesc = MLR_train(X, Y, rModel)
+      traindMdls[modelName] = MLR_train(modelName, X, Y, config)
       print("MLR Xcols")
-      print(Xcols)
-      # STORE RESULTS
-      trainedModels[thisModelName] = {
-        'config': rModel,
-        'model': model_MLR,
-        'x' : Xcols, 
-        'y' : rModel['y'],
-        'test_y' : test_y,
-        'pred_y': pred_y
-      }
+      print(traindMdls[modelName]['x'])
       # EVALUATE
-      evaluateRegModel(test_y, pred_y, thisModelName, trainedModels[thisModelName])
+      evaluateRegModel(
+        traindMdls[modelName]['test_y'], traindMdls[modelName]['pred_y'], 
+        modelName, traindMdls[modelName])
     else:
       # Conf Error
-      print("Config in error for model: " + thisModelName)
+      print("Config in error for model: " + modelName)
 
   # Decision Tree
-  if modelType in ['dt', 'DT']:
-    if checkIfexists('x', rModel) and checkIfexists('y', rModel) and checkIfexists('show', rModel):
+  elif modelType in ['dt', 'DT']:
+    if checkIfexists('x', config) and checkIfexists('y', config) and checkIfexists('show', config):
+      # Model Name
+      modelName = "DT_" + config['xColNames'] + "_vs_" + config['y']
       # TRAIN
-      model_DT, thisModelName, test_y, pred_y, Xcols, X_enc  = DT_train(X, Y, rModel)
-      # STORE RESULTS
-      trainedModels[thisModelName] = {
-        'config': rModel,
-        'model': model_DT,
-        'x' : rModel['x'], 
-        'y' : rModel['y'],
-        'test_y' : test_y,
-        'pred_y': pred_y
-      }
+      traindMdls[modelName]  = DT_train(X, Y, config)
       # EVALUATE
-      evaluateCLModel(thisModelName, model_DT, X_enc[Xcols], Y)
+      evaluateRegModel(
+        traindMdls[modelName]['test_y'], traindMdls[modelName]['pred_y'], 
+        modelName, traindMdls[modelName])
     else:
       # Conf Error
-      print("Config in error for model: " + thisModelName)
+      print("Config in error for model: " + modelName)
  
   # Model not listed    
   else:
@@ -145,7 +131,7 @@ for rModel in requestedModels:
 
 # SHOW TRAINED MODELS
 print("*"*25,"\nTrained Models:")
-for m in trainedModels.keys():
+for m in traindMdls.keys():
   print(m)
 
 # END TIMING

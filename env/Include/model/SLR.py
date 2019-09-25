@@ -3,13 +3,11 @@
 @author: Brownbull - Gabriel Carcamo - carcamo.gabriel@gmail.com
   SLR
 """
-from env.Include.model.imports_model import *
-from env.Include.model.operations import *
+from env.Include.model.imports import *
+from env.Include.model.tools import *
+from env.Include.model.visual import *
 
-def SLR_train(dataset, config):
-  # Model Name
-  thisModelName = "SLR_" + config['x'] + "_vs_" + config['y']
-
+def SLR_train(modelName, dataset, config):
   # Select Features
   features_X = [config['x']]
   X = dataset[features_X]
@@ -29,6 +27,15 @@ def SLR_train(dataset, config):
   pred_y = regressor.predict(test_X)
   pred_y = (pred_y > 0.5) 
 
-  show2dScatter(train_X, train_y, config['y'], config['x'], regressor, thisModelName, config['show'])
+  show2dScatter(train_X, train_y, config['y'], config['x'], regressor, modelName, config['show'])
 
-  return regressor, thisModelName, test_y, pred_y
+  # return regressor, thisModelName, test_y, pred_y
+
+  return {
+    'config': config,
+    'model': regressor,
+    'x' : config['x'], 
+    'y' : config['y'],
+    'test_y' : test_y,
+    'pred_y': pred_y
+  }
