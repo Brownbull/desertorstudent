@@ -1,0 +1,5 @@
+identificar si mejor nota corresonde a unramo reprobado anteriormente
+1 o NA deben estarben la misma categoria
+si todos los ramos son 1 entonces aumno hizo DROP
+	NA no se considera en as notas de promedio final
+
