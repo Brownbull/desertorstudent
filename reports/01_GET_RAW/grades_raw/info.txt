@@ -16,4 +16,4 @@ Convalidación         282 non-null object
 Nota                  15338 non-null object
 Homologado            588 non-null object
 dtypes: float64(2), int64(4), object(8)
-memory usage: 1.5+ MB
+memory usage: 2.1+ MB

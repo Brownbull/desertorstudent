@@ -1,0 +1,63 @@
+Done
+LAN – Local Area Network
+WAN – Wide Area Network
+MPLS – Multi Protocol Label Switching
+FEC – Forwarding Equivalent Class
+FORWARDING 
+MDF – Main Distribution Frame
+IDF – Intermediate Distribution Frame
+RADIUS – Remote Authentification Dial-In User Service
+MAC Address
+DHCP – Dynamic Host Configuration Protocol
+FIREWALL
+SIEM – Security Information and Event Management
+ROUTER
+SWITCH
+TOR – Top of Rack
+VLAN – Virtual Local Area Network
+Telefonía IP
+UPS – Uninterruptible Power Supply
+ISP – Internet Service Provider
+DMZ – Demilitarized Zone
+Broadcast Storm – Tormenta de broadcast
+
+Missing
+IT -  Information Technology
+CCNA4 
+WIFI 
+Active Directory
+IP
+IP estatica
+IP dinamica
+IDS equipos de detección de intrusos 
+IPS máquinas de prevención de intrusos 
+datacenter 
+datacenter rack
+cableado UTP 
+patch panel de cableado
+KVM
+Storage VTL
+OWA MS Exchange
+configuracion stack en una red
+puertos gateway 
+capa 2
+capa 3
+protocolo 802.11ac
+dispositivos DoS
+broadcast
+aviso SNMP 
+DNS
+phishing
+ACL
+
+
+
+
+
+
+
+
+
+
+
+

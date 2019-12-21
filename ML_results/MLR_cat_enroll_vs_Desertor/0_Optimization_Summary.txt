@@ -5,8 +5,8 @@ Ones/SchoolRegion_1/SchoolRegion_2/SchoolRegion_3/SchoolRegion_5/SchoolRegion_6/
 Dep. Variable:               Desertor   R-squared:                       0.092
 Model:                            OLS   Adj. R-squared:                  0.042
 Method:                 Least Squares   F-statistic:                     1.842
-Date:                Wed, 25 Sep 2019   Prob (F-statistic):            0.00591
-Time:                        11:08:38   Log-Likelihood:                -314.95
+Date:                Sat, 21 Dec 2019   Prob (F-statistic):            0.00591
+Time:                        14:49:23   Log-Likelihood:                -314.95
 No. Observations:                 537   AIC:                             687.9
 Df Residuals:                     508   BIC:                             812.2
 Df Model:                          28                                         

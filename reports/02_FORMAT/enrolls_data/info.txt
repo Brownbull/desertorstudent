@@ -15,4 +15,4 @@ EdTypeCode         533 non-null object
 SchoolType         532 non-null object
 MotherEd           352 non-null float64
 dtypes: float64(6), int64(2), object(5)
-memory usage: 48.2+ KB
+memory usage: 58.7+ KB

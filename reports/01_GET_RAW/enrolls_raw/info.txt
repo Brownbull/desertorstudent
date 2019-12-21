@@ -26,4 +26,4 @@ TIPO EDUCACION      532 non-null object
 TIPO COLEGIO        532 non-null object
 EDU. MADRE ID       352 non-null float64
 dtypes: float64(10), int64(3), object(11)
-memory usage: 77.7+ KB
+memory usage: 100.8+ KB

@@ -48,4 +48,4 @@ S2_AVG_PERF        537 non-null float64
 S2_VS_S1           537 non-null float64
 Desertor           537 non-null float64
 dtypes: float64(39), int64(2), object(5)
-memory usage: 202.7+ KB
+memory usage: 217.2+ KB
