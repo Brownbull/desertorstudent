@@ -38,15 +38,15 @@ def enrolls_Fill(dfEnrolls):
   mean_ScienScr = round(dfEnrolls['ScienScr'].mean(skipna=True),0)
 
   dfEnrolls['NEMScr'].fillna(dfEnrolls['NEMScr'].median(), inplace = True)
-  dfEnrolls['NEMScr']=dfEnrolls.NEMScr.mask(dfEnrolls.NEMScr == 0,mean_NEMScr)
+  dfEnrolls['NEMScr'] = dfEnrolls.NEMScr.mask(dfEnrolls.NEMScr == 0,mean_NEMScr)
   dfEnrolls['Ranking'].fillna(dfEnrolls['Ranking'].median(), inplace = True)
-  dfEnrolls['Ranking']=dfEnrolls.Ranking.mask(dfEnrolls.Ranking == 0,mean_Ranking)
+  dfEnrolls['Ranking'] = dfEnrolls.Ranking.mask(dfEnrolls.Ranking == 0,mean_Ranking)
   dfEnrolls['LangScr'].fillna(dfEnrolls['LangScr'].median(), inplace = True)
-  dfEnrolls['LangScr']=dfEnrolls.LangScr.mask(dfEnrolls.LangScr == 0,mean_LangScr)
+  dfEnrolls['LangScr'] = dfEnrolls.LangScr.mask(dfEnrolls.LangScr == 0,mean_LangScr)
   dfEnrolls['MathScr'].fillna(dfEnrolls['MathScr'].median(), inplace = True)
-  dfEnrolls['MathScr']=dfEnrolls.MathScr.mask(dfEnrolls.MathScr == 0,mean_MathScr)
+  dfEnrolls['MathScr'] = dfEnrolls.MathScr.mask(dfEnrolls.MathScr == 0,mean_MathScr)
   dfEnrolls['ScienScr'].fillna(dfEnrolls['ScienScr'].median(), inplace = True)
-  dfEnrolls['ScienScr']=dfEnrolls.ScienScr.mask(dfEnrolls.ScienScr == 0,mean_ScienScr)
+  dfEnrolls['ScienScr'] = dfEnrolls.ScienScr.mask(dfEnrolls.ScienScr == 0,mean_ScienScr)
 
   dfEnrolls['Ranking'].fillna(dfEnrolls['Ranking'].median(), inplace = True)
   dfEnrolls['NEMScr'].fillna(dfEnrolls['NEMScr'].median(), inplace = True)
@@ -78,40 +78,40 @@ def enrolls_FeatureEng(dfEnrolls):
     # SchoolRegion
     if dfEnrolls['SchoolRegion'].dtype != np.float64: 
     # added for sample, 10 rows will case np.float64 tpe which does not have isnumeric() method
-      if dfEnrolls.loc[idx,'SchoolRegion'] in ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15']:
-        dfEnrolls.loc[idx,'SchoolRegion'] = int(dfEnrolls.loc[idx,'SchoolRegion'])
-      else:
+      # if dfEnrolls.loc[idx,'SchoolRegion'] in ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15']:
+      #   dfEnrolls.loc[idx,'SchoolRegion'] = int(dfEnrolls.loc[idx,'SchoolRegion'])
+      # else:
       # if not dfEnrolls.loc[idx,'SchoolRegion'].isnumeric():
-        if dfEnrolls.loc[idx,'SchoolRegion'] == 'I':
-          dfEnrolls.loc[idx,'SchoolRegion'] = 1
-        elif dfEnrolls.loc[idx,'SchoolRegion'] == 'II':
-          dfEnrolls.loc[idx,'SchoolRegion'] = 2
-        elif dfEnrolls.loc[idx,'SchoolRegion'] == 'III':
-          dfEnrolls.loc[idx,'SchoolRegion'] = 3
-        elif dfEnrolls.loc[idx,'SchoolRegion'] == 'IV':
-          dfEnrolls.loc[idx,'SchoolRegion'] = 4
-        elif dfEnrolls.loc[idx,'SchoolRegion'] == 'V':
-          dfEnrolls.loc[idx,'SchoolRegion'] = 5
-        elif dfEnrolls.loc[idx,'SchoolRegion'] == 'VI':
-          dfEnrolls.loc[idx,'SchoolRegion'] = 6
-        elif dfEnrolls.loc[idx,'SchoolRegion'] == 'VII':
-          dfEnrolls.loc[idx,'SchoolRegion'] = 7
-        elif dfEnrolls.loc[idx,'SchoolRegion'] == 'VIII':
-          dfEnrolls.loc[idx,'SchoolRegion'] = 8
-        elif dfEnrolls.loc[idx,'SchoolRegion'] == 'IX':
-          dfEnrolls.loc[idx,'SchoolRegion'] = 9
-        elif dfEnrolls.loc[idx,'SchoolRegion'] == 'X':
-          dfEnrolls.loc[idx,'SchoolRegion'] = 10
-        elif dfEnrolls.loc[idx,'SchoolRegion'] == 'XI':
-          dfEnrolls.loc[idx,'SchoolRegion'] = 11
-        elif dfEnrolls.loc[idx,'SchoolRegion'] == 'XII':
-          dfEnrolls.loc[idx,'SchoolRegion'] = 12
-        elif dfEnrolls.loc[idx,'SchoolRegion'] in ['XIII', 'RM']:
-          dfEnrolls.loc[idx,'SchoolRegion'] = 13
-        elif dfEnrolls.loc[idx,'SchoolRegion'] == 'XIV':
-          dfEnrolls.loc[idx,'SchoolRegion'] = 14
-        elif dfEnrolls.loc[idx,'SchoolRegion'] == 'XV':
-          dfEnrolls.loc[idx,'SchoolRegion'] = 15
+        if dfEnrolls.loc[idx,'SchoolRegion'] in ['I', '1' ]:
+          dfEnrolls.loc[idx,'SchoolRegion'] = 'I'
+        elif dfEnrolls.loc[idx,'SchoolRegion'] in ['II', '2' ]:
+          dfEnrolls.loc[idx,'SchoolRegion'] = 'II'
+        elif dfEnrolls.loc[idx,'SchoolRegion'] in ['III', '3' ]:
+          dfEnrolls.loc[idx,'SchoolRegion'] = 'III'
+        elif dfEnrolls.loc[idx,'SchoolRegion'] in ['IV', '4' ]:
+          dfEnrolls.loc[idx,'SchoolRegion'] = 'IV'
+        elif dfEnrolls.loc[idx,'SchoolRegion'] in ['V', '5' ]:
+          dfEnrolls.loc[idx,'SchoolRegion'] = 'V'
+        elif dfEnrolls.loc[idx,'SchoolRegion'] in ['VI', '6' ]:
+          dfEnrolls.loc[idx,'SchoolRegion'] = 'VI'
+        elif dfEnrolls.loc[idx,'SchoolRegion'] in ['VII', '7' ]:
+          dfEnrolls.loc[idx,'SchoolRegion'] = 'VII'
+        elif dfEnrolls.loc[idx,'SchoolRegion'] in ['VIII', '8' ]:
+          dfEnrolls.loc[idx,'SchoolRegion'] = 'VIII'
+        elif dfEnrolls.loc[idx,'SchoolRegion'] in ['IX', '9' ]:
+          dfEnrolls.loc[idx,'SchoolRegion'] = 'IX'
+        elif dfEnrolls.loc[idx,'SchoolRegion'] in ['X', '10' ]:
+          dfEnrolls.loc[idx,'SchoolRegion'] = 'X'
+        elif dfEnrolls.loc[idx,'SchoolRegion'] in ['XI', '11' ]:
+          dfEnrolls.loc[idx,'SchoolRegion'] = 'XI'
+        elif dfEnrolls.loc[idx,'SchoolRegion'] in ['XII', '12' ]:
+          dfEnrolls.loc[idx,'SchoolRegion'] = 'XII'
+        elif dfEnrolls.loc[idx,'SchoolRegion'] in ['XIII', 'RM', '13']:
+          dfEnrolls.loc[idx,'SchoolRegion'] = 'RM'  
+        elif dfEnrolls.loc[idx,'SchoolRegion'] in ['XIV', '14' ]:
+          dfEnrolls.loc[idx,'SchoolRegion'] = 'XIV'
+        elif dfEnrolls.loc[idx,'SchoolRegion'] in ['XV', '15' ]:
+          dfEnrolls.loc[idx,'SchoolRegion'] = 'XV'
         else:
           dfEnrolls.loc[idx,'SchoolRegion'] = dfEnrolls.loc[idx,'SchoolRegion'] + "_UNK"
     # EdTypeCode

@@ -48,7 +48,7 @@ else:
 dfs = [enrolls_raw, grades_raw] # set array of data
 
 # end stage
-finishedStage = "01_GET_RAW"
+finishedStage = "ETL_01_GET_RAW"
 stageEndSet(finishedStage, dfs, args.info, args.debug)
 
 # FORMAT DATA
@@ -57,7 +57,7 @@ grades_data = grades_Format(grades_raw)
 dfs = [enrolls_data, grades_data] # reset array of data
 
 # end stage
-finishedStage = "02_FORMAT"
+finishedStage = "ETL_02_FORMAT"
 stageEndSet(finishedStage, dfs, args.info, args.debug)
 
 # FILL NULL DATA
@@ -65,7 +65,7 @@ enrolls_data = enrolls_Fill(enrolls_data)
 grades_data = grades_Fill(grades_data)
 
 # end stage
-finishedStage = "03_FILL"
+finishedStage = "ETL_03_FILL"
 stageEndSet(finishedStage, dfs, args.info, args.debug)
 
 # FEATURE ENG
@@ -79,7 +79,7 @@ enrolls_data = enrolls_DropCols(enrolls_data)
 grades_data = grades_DropCols(grades_data)
 
 # end stage
-finishedStage = "04_FEATURE_ENG"
+finishedStage = "ETL_04_FEATURE_ENG"
 stageEndSet(finishedStage, dfs, args.info, args.debug)
 # save data
 idx = False
@@ -91,7 +91,7 @@ unifyUncommon(enrolls_data, args.debug, min = args.min)
 unifyUncommon(grades_data, args.debug, min = args.min)
 
 # end stage
-finishedStage = "05_UNIFY_RARE"
+finishedStage = "ETL_05_UNIFY_RARE"
 stageEndSet(finishedStage, dfs, args.info, args.debug)
 
 # AGGREGATE
@@ -99,7 +99,7 @@ enrolls_data = aggregateEnrollwGrades(enrolls_data, grades_data, args.debug)
 dfs = [enrolls_data, grades_data] # set array of data
 
 # end stage
-finishedStage = "06_AGGREGATE"
+finishedStage = "ETL_06_AGGREGATE"
 stageEndSet(finishedStage, dfs, args.info, args.debug)
 # save data
 idx = False

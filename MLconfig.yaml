@@ -25,7 +25,7 @@ cEnroll_nS1S2: &cEnroll_nS1S2 [ 'SchoolRegion', 'EdTypeCode', 'SchoolType', 'Mot
 cEnroll_nPSU_nS1S2: &cEnroll_nPSU_nS1S2 [ 'SchoolRegion', 'EdTypeCode', 'SchoolType', 'MotherEd', 'Campus', 'PostulationType', 'NEMScr', 'Ranking', 'LangScr', 'MathScr', 'ScienScr', 'S1_DRP', 'S1_BAD', 'S1_CVL', 'S1_GRD_1TO19', 'S1_GRD_2TO29', 'S1_GRD_3TO39', 'S1_GRD_4TO49', 'S1_GRD_5TO59', 'S1_GRD_6TO7', 'S1_BEST_GRD', 'S1_WORST_GRD', 'S2_DRP', 'S2_BAD', 'S2_CVL', 'S2_GRD_1TO19', 'S2_GRD_2TO29', 'S2_GRD_3TO39', 'S2_GRD_4TO49', 'S2_GRD_5TO59', 'S2_GRD_6TO7', 'S2_BEST_GRD', 'S2_WORST_GRD', 'S2_VS_S1' ]
 Target: &Target 'Desertor'
 # Model Setup
-dataset: data/06_AGGREGATE/enrolls_data.csv
+dataset: data/ETL_06_AGGREGATE/enrolls_data.csv
 sample: 0
 models: [
   {

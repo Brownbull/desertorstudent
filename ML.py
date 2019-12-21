@@ -47,7 +47,7 @@ X_bin = cat2Number(X, mlCfg['cat_enroll'])
 X_enc = cat2Dummy(X_bin, mlCfg['cat_enroll'])
 
 # end stage
-finishedStage = "10_ENCODE"
+finishedStage = "ML_01_ENCODE"
 stageEnd(finishedStage, X_see, mlCfg['info'], mlCfg['debug'])
 stageEnd(finishedStage, X_bin, mlCfg['info'], mlCfg['debug'])
 stageEnd(finishedStage, X_enc, mlCfg['info'], mlCfg['debug'])

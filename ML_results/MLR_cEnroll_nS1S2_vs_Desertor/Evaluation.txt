@@ -1,7 +1,7 @@
 Model:MLR_cEnroll_nS1S2_vs_Desertor 
-        x: Ones, S1_GRD_4TO49, S2_GRD_1TO19, S2_GRD_3TO39, S2_GRD_4TO49, S2_GRD_5TO59, S2_GRD_6TO7, SchoolRegion_7, SchoolType_2, MotherEd_7, Campus_1, PostulationType_1
+        x: Ones, S1_GRD_4TO49, S1_GRD_5TO59, S2_GRD_3TO39, S2_GRD_4TO49, S2_GRD_5TO59, S2_GRD_6TO7, S2_BEST_GRD, SchoolRegion_1, SchoolRegion_2, SchoolRegion_3, SchoolType_2, MotherEd_7, Campus_1
         y:   Desertor
-      Accuracy:    0.7962962962962963
-     Precision:    0.8513513513513513
-        Recall:    0.8513513513513513
-      F1_Score:    0.8513513513513514
+      Accuracy:    0.8240740740740741
+     Precision:    0.8783783783783784
+        Recall:    0.8666666666666667
+      F1_Score:      0.87248322147651

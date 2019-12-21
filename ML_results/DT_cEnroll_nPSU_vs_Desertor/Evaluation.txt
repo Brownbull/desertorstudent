@@ -1,7 +1,7 @@
 Model:DT_cEnroll_nPSU_vs_Desertor 
         x: SchoolRegion, EdTypeCode, SchoolType, MotherEd, Campus, PostulationType, NEMScr, Ranking, LangScr, MathScr, ScienScr
         y:   Desertor
-      Accuracy:    0.6574074074074074
-     Precision:    0.8513513513513513
-        Recall:    0.7078651685393258
-      F1_Score:    0.7730061349693251
+      Accuracy:    0.6666666666666666
+     Precision:    0.9054054054054054
+        Recall:    0.6979166666666666
+      F1_Score:     0.788235294117647
