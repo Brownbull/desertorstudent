@@ -3,7 +3,7 @@ from pathlib import Path
 
 def evaluateRegModel(test_y, pred_y, thisModelName, modelResults):
   # SET WRITE DIRECTORY
-  outDir = "ML_results/" + thisModelName
+  outDir = "results/ML/" + thisModelName
   if not Path(outDir).exists():
     os.makedirs(outDir)
 
@@ -37,7 +37,7 @@ def evaluateRegModel(test_y, pred_y, thisModelName, modelResults):
 
 def evaluateCLModel(thisModelName, classifier, features, target):
   # SET WRITE DIRECTORY
-  outDir = "ML_results/" + thisModelName
+  outDir = "results/ML/" + thisModelName
   if not Path(outDir).exists():
     os.makedirs(outDir)
 

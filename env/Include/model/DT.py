@@ -46,7 +46,7 @@ def DT_train(modelName, X, Y, config):
   # SHOW GRAPH
   if config['show'] in ['inline', 'file']:
     # SET WRITE DIRECTORY
-    outDir = "ML_results/" + modelName
+    outDir = "results/ML/" + modelName
     if not Path(outDir).exists():
       os.makedirs(outDir)
     tree.export_graphviz(

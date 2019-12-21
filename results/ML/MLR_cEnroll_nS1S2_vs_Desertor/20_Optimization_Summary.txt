@@ -1,0 +1,47 @@
+Columns on Logic:
+Ones/S1_DRP/S1_GRD_1TO19/S1_GRD_4TO49/S1_GRD_5TO59/S2_BAD/S2_GRD_1TO19/S2_GRD_3TO39/S2_GRD_4TO49/S2_GRD_5TO59/S2_GRD_6TO7/S2_BEST_GRD/S2_VS_S1/SchoolRegion_1/SchoolRegion_2/SchoolRegion_3/SchoolType_2/MotherEd_5/MotherEd_7/Campus_1/PostulationType_1
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               Desertor   R-squared:                       0.494
+Model:                            OLS   Adj. R-squared:                  0.473
+Method:                 Least Squares   F-statistic:                     23.95
+Date:                Sat, 21 Dec 2019   Prob (F-statistic):           6.89e-63
+Time:                        19:30:30   Log-Likelihood:                -157.96
+No. Observations:                 537   AIC:                             359.9
+Df Residuals:                     515   BIC:                             454.2
+Df Model:                          21                                         
+Covariance Type:            nonrobust                                         
+=====================================================================================
+                        coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------
+Ones                  0.3497      0.163      2.140      0.033       0.029       0.671
+S1_DRP                0.0220      0.014      1.626      0.105      -0.005       0.049
+S1_GRD_1TO19          0.0372      0.025      1.511      0.131      -0.011       0.086
+S1_GRD_4TO49         -0.0610      0.013     -4.620      0.000      -0.087      -0.035
+S1_GRD_5TO59         -0.0343      0.015     -2.330      0.020      -0.063      -0.005
+S2_BAD                0.0136      0.011      1.226      0.221      -0.008       0.035
+S2_CVL               -0.0214      0.019     -1.138      0.256      -0.058       0.016
+S2_GRD_1TO19         -0.0524      0.030     -1.727      0.085      -0.112       0.007
+S2_GRD_3TO39         -0.0526      0.018     -2.870      0.004      -0.089      -0.017
+S2_GRD_4TO49         -0.0722      0.016     -4.444      0.000      -0.104      -0.040
+S2_GRD_5TO59         -0.0538      0.017     -3.211      0.001      -0.087      -0.021
+S2_GRD_6TO7          -0.0578      0.025     -2.322      0.021      -0.107      -0.009
+S2_BEST_GRD          -0.0023      0.002     -1.325      0.186      -0.006       0.001
+S2_VS_S1             -0.0026      0.002     -1.343      0.180      -0.006       0.001
+SchoolRegion_1        0.2685      0.130      2.068      0.039       0.013       0.524
+SchoolRegion_2        0.2618      0.145      1.802      0.072      -0.024       0.547
+SchoolRegion_3        0.3238      0.118      2.733      0.006       0.091       0.556
+SchoolType_2         -0.1202      0.034     -3.587      0.000      -0.186      -0.054
+MotherEd_5           -0.1097      0.083     -1.322      0.187      -0.273       0.053
+MotherEd_7            0.1573      0.065      2.438      0.015       0.031       0.284
+Campus_1              0.2385      0.119      1.997      0.046       0.004       0.473
+PostulationType_1     0.1369      0.064      2.134      0.033       0.011       0.263
+==============================================================================
+Omnibus:                       38.467   Durbin-Watson:                   1.939
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               57.923
+Skew:                           0.530   Prob(JB):                     2.64e-13
+Kurtosis:                       4.211   Cond. No.                         987.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

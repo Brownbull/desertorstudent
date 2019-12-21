@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
 """
 @author: Brownbull - Gabriel Carcamo - carcamo.gabriel@gmail.com
-  SLR
+  PP
 """
+import os
+from pathlib import Path
 from env.Include.dash.imports import *
 
 def PP_exec(dashName, dataset, hue, vars, outF):
+  if not Path(outF).exists():
+    os.makedirs(outF)
+
   pp = sns.pairplot(  
     dataset, 
     hue = hue, 

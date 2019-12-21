@@ -15,7 +15,7 @@ def show2dScatter(train_X, train_y, y, x, regressor, thisModelName, show):
       plt.show() 
     elif show == 'file':
       # SET WRITE DIRECTORY
-      outDir = "ML_results/" + thisModelName
+      outDir = "results/ML/" + thisModelName
       setOrCreatePath(outDir)
       plt.savefig(outDir + "/" + x + "_vs_" + y + '.png', bbox_inches='tight')
       print(outDir + "/" + x + "_vs_" + y + ".png Created")
@@ -42,7 +42,7 @@ def showCorrHeatMap(df, thisModelName, x, y, show):
       plt.show() 
   elif show == 'file':
     # SET WRITE DIRECTORY
-    outDir = "ML_results/" + thisModelName
+    outDir = "results/ML/" + thisModelName
     setOrCreatePath(outDir)
     plt.savefig(outDir + "/" + x + "_vs_" + y + '.png', bbox_inches='tight')
     print(outDir + "/" + x + "_vs_" + y + ".png Created")

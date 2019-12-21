@@ -15,7 +15,7 @@ def setOrCreatePath(outDir):
 
 def OLS_optimizeFeatures(X, Xcols, y, thisModelName, config):
   # SET WRITE DIRECTORY
-  outDir = "ML_results/" + thisModelName
+  outDir = "results/ML/" + thisModelName
   if not Path(outDir).exists():
     os.makedirs(outDir)
 

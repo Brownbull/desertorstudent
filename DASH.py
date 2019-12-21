@@ -40,7 +40,7 @@ Y = dataset[dashConfig['Target']]
 from env.Include.dash.pp import *
 
 reqDashboards = dashConfig['dashboards']
-outF = "DASH_results/"
+outF = "results/DASH/"
 
 # EXECUTE DASH CREATE
 for config in reqDashboards:
