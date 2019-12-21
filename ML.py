@@ -13,7 +13,7 @@ from env.Include.model.imports import *
 
 # CHECK ARGUMENTS
 parser = argparse.ArgumentParser(description='Main process of ML implementation to estimate rate of student desertion.')
-parser.add_argument('-mlConfig','-mlc', '-c', help='ML Config File Path', default="MLconfig.yaml")
+parser.add_argument('-mlConfig','-mlc', '-c', help='ML Config File Path', default="config/MLconfig.yaml")
 args = parser.parse_args()
 
 # READ CONFIG FILE

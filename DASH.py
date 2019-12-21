@@ -8,7 +8,7 @@ from env.Include.dash.imports import *
 
 # CHECK ARGUMENTS
 parser = argparse.ArgumentParser(description='Main process of Dashboards to generate visualizations from obtained data.')
-parser.add_argument('-dashConfig','-dc', '-c', help='Dashboards Config File Path', default="DASHconfig.yaml")
+parser.add_argument('-dashConfig','-dc', '-c', help='Dashboards Config File Path', default="config/DASHconfig.yaml")
 args = parser.parse_args()
 
 # READ CONFIG FILE
