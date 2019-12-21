@@ -1,0 +1,59 @@
+# Software Info
+version: 1
+author:
+  alias: Brownbull
+  name: Gabriel Carcamo
+  email: carcamo.gabriel@gmail.com
+# Program Setup
+info: False
+force: False
+stats: True
+debug: True
+dataset: data/ETL_06_AGGREGATE/enrolls_data.csv
+# Columns Sets: from model/features.py
+ID: &ID ['Rut']
+everything : &everything [ 'NEMScr', 'Ranking', 'LangScr', 'MathScr', 'ScienScr', 'SchoolRegion', 'EdTypeCode', 'SchoolType', 'MotherEd', 'Campus', 'PostulationType', 'S1_INS', 'S1_DRP', 'S1_BAD', 'S1_CVL', 'S1_DID', 'S1_APVD', 'S1_RPVD', 'S1_GRD_1TO19', 'S1_GRD_2TO29', 'S1_GRD_3TO39', 'S1_GRD_4TO49', 'S1_GRD_5TO59', 'S1_GRD_6TO7', 'S1_BEST_GRD', 'S1_WORST_GRD', 'S1_AVG_PERF', 'S2_INS', 'S2_DRP', 'S2_BAD', 'S2_CVL', 'S2_DID', 'S2_APVD', 'S2_RPVD', 'S2_GRD_1TO19', 'S2_GRD_2TO29', 'S2_GRD_3TO39', 'S2_GRD_4TO49', 'S2_GRD_5TO59', 'S2_GRD_6TO7', 'S2_BEST_GRD', 'S2_WORST_GRD', 'S2_AVG_PERF', 'S2_VS_S1']
+num_all : &num_all [ 'NEMScr', 'Ranking', 'LangScr', 'MathScr', 'ScienScr', 'S1_INS', 'S1_DRP', 'S1_BAD', 'S1_CVL', 'S1_DID', 'S1_APVD', 'S1_RPVD', 'S1_GRD_1TO19', 'S1_GRD_2TO29', 'S1_GRD_3TO39', 'S1_GRD_4TO49', 'S1_GRD_5TO59', 'S1_GRD_6TO7', 'S1_BEST_GRD', 'S1_WORST_GRD', 'S1_AVG_PERF', 'S2_INS', 'S2_DRP', 'S2_BAD', 'S2_CVL', 'S2_DID', 'S2_APVD', 'S2_RPVD', 'S2_GRD_1TO19', 'S2_GRD_2TO29', 'S2_GRD_3TO39', 'S2_GRD_4TO49', 'S2_GRD_5TO59', 'S2_GRD_6TO7', 'S2_BEST_GRD', 'S2_WORST_GRD', 'S2_AVG_PERF', 'S2_VS_S1' ]
+cat_enroll: &cat_enroll [ 'SchoolRegion', 'EdTypeCode', 'SchoolType', 'MotherEd', 'Campus', 'PostulationType' ]
+num_PSU: &num_PSU [ 'NEMScr', 'Ranking', 'LangScr', 'MathScr', 'ScienScr' ]
+num_S1: &num_S1 [ 'S1_DRP', 'S1_BAD', 'S1_CVL', 'S1_GRD_1TO19', 'S1_GRD_2TO29', 'S1_GRD_3TO39', 'S1_GRD_4TO49', 'S1_GRD_5TO59', 'S1_GRD_6TO7', 'S1_BEST_GRD', 'S1_WORST_GRD', ]
+num_S2: &num_S2 [ 'S2_DRP', 'S2_BAD', 'S2_CVL', 'S2_GRD_1TO19', 'S2_GRD_2TO29', 'S2_GRD_3TO39', 'S2_GRD_4TO49', 'S2_GRD_5TO59', 'S2_GRD_6TO7', 'S2_BEST_GRD', 'S2_WORST_GRD', 'S2_VS_S1' ]
+nS1S2: &nS1S2 [ 'S1_DRP', 'S1_BAD', 'S1_CVL', 'S1_GRD_1TO19', 'S1_GRD_2TO29', 'S1_GRD_3TO39', 'S1_GRD_4TO49', 'S1_GRD_5TO59', 'S1_GRD_6TO7', 'S1_BEST_GRD', 'S1_WORST_GRD', 'S2_DRP', 'S2_BAD', 'S2_CVL', 'S2_GRD_1TO19', 'S2_GRD_2TO29', 'S2_GRD_3TO39', 'S2_GRD_4TO49', 'S2_GRD_5TO59', 'S2_GRD_6TO7', 'S2_BEST_GRD', 'S2_WORST_GRD', 'S2_VS_S1' ]
+num_S1_plus: &num_S1_plus [ 'S1_INS', 'S1_DRP', 'S1_BAD', 'S1_CVL', 'S1_DID', 'S1_APVD', 'S1_RPVD', 'S1_GRD_1TO19', 'S1_GRD_2TO29', 'S1_GRD_3TO39', 'S1_GRD_4TO49', 'S1_GRD_5TO59', 'S1_GRD_6TO7', 'S1_BEST_GRD', 'S1_WORST_GRD', 'S1_AVG_PERF' ]
+num_S2_plus: &num_S2_plus [ 'S2_INS', 'S2_DRP', 'S2_BAD', 'S2_CVL', 'S2_DID', 'S2_APVD', 'S2_RPVD', 'S2_GRD_1TO19', 'S2_GRD_2TO29', 'S2_GRD_3TO39', 'S2_GRD_4TO49', 'S2_GRD_5TO59', 'S2_GRD_6TO7', 'S2_BEST_GRD', 'S2_WORST_GRD', 'S2_AVG_PERF', 'S2_VS_S1' ]
+cEnroll_nPSU: &cEnroll_nPSU [ 'SchoolRegion', 'EdTypeCode', 'SchoolType', 'MotherEd', 'Campus', 'PostulationType', 'NEMScr', 'Ranking', 'LangScr', 'MathScr', 'ScienScr' ]
+cEnroll_nS1S2: &cEnroll_nS1S2 [ 'SchoolRegion', 'EdTypeCode', 'SchoolType', 'MotherEd', 'Campus', 'PostulationType', 'S1_DRP', 'S1_BAD', 'S1_CVL', 'S1_GRD_1TO19', 'S1_GRD_2TO29', 'S1_GRD_3TO39', 'S1_GRD_4TO49', 'S1_GRD_5TO59', 'S1_GRD_6TO7', 'S1_BEST_GRD', 'S1_WORST_GRD', 'S2_DRP', 'S2_BAD', 'S2_CVL', 'S2_GRD_1TO19', 'S2_GRD_2TO29', 'S2_GRD_3TO39', 'S2_GRD_4TO49', 'S2_GRD_5TO59', 'S2_GRD_6TO7', 'S2_BEST_GRD', 'S2_WORST_GRD', 'S2_VS_S1' ]
+cEnroll_nPSU_nS1S2: &cEnroll_nPSU_nS1S2 [ 'SchoolRegion', 'EdTypeCode', 'SchoolType', 'MotherEd', 'Campus', 'PostulationType', 'NEMScr', 'Ranking', 'LangScr', 'MathScr', 'ScienScr', 'S1_DRP', 'S1_BAD', 'S1_CVL', 'S1_GRD_1TO19', 'S1_GRD_2TO29', 'S1_GRD_3TO39', 'S1_GRD_4TO49', 'S1_GRD_5TO59', 'S1_GRD_6TO7', 'S1_BEST_GRD', 'S1_WORST_GRD', 'S2_DRP', 'S2_BAD', 'S2_CVL', 'S2_GRD_1TO19', 'S2_GRD_2TO29', 'S2_GRD_3TO39', 'S2_GRD_4TO49', 'S2_GRD_5TO59', 'S2_GRD_6TO7', 'S2_BEST_GRD', 'S2_WORST_GRD', 'S2_VS_S1' ]
+Target: &Target 'Desertor'
+# Dash Setup
+sample: 0
+dashboards: [
+  {
+    type: pp,
+    desc: PairPlot,
+    xColNames: nS1S2,
+    x: *nS1S2,
+    y: *Target
+  },
+  {
+    type: pp,
+    desc: PairPlot,
+    xColNames: num_S1_plus,
+    x: *num_S1_plus,
+    y: *Target
+  },
+  {
+    type: pp,
+    desc: PairPlot,
+    xColNames: num_S2,
+    x: *num_S2,
+    y: *Target
+  },
+  {
+    type: pp,
+    desc: PairPlot,
+    xColNames: num_PSU,
+    x: *num_PSU,
+    y: *Target
+  }
+]

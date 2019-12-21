@@ -48,17 +48,23 @@ def aggregateEnrollwGrades(dfEnrolls, dfGrades, debug):
   Population = []
   Studnt = iniStudnt(0, 0)
 
+  # Iterate trough Grades
   for idx, row in dfGrades.iterrows():
+    # Match Grades against Enrolls
     if dfEnrolls['Rut'].isin([row['Rut']]).count() > 0:
+      # initial condition, save first subject
       if Studnt["Rut"] == 0:
         Studnt["Rut"] = dfGrades.loc[idx,'Rut']
         Studnt["Year"] = dfGrades.loc[idx,'Year']
+      # change of current subject
       elif Studnt["Rut"] != dfGrades.loc[idx,'Rut']:
-        # print(Studnt)
+        # Save current student data, before change into new
         Studnt = consolidate(Studnt)
         Population.append(Studnt)
+        # Initialize new Student
         Studnt = iniStudnt(dfGrades.loc[idx,'Rut'], dfGrades.loc[idx,'Year'])
       
+      # Match grades from 1st Student's year on University
       if dfGrades.loc[idx,'Year'] == Studnt["Year"]:
         # Semester 1
         if dfGrades.loc[idx,'Period'] == 1:

@@ -17,7 +17,7 @@ parser.add_argument('-mlConfig','-mlc', '-c', help='ML Config File Path', defaul
 args = parser.parse_args()
 
 # READ CONFIG FILE
-mlCfg = readMLConfg(args.mlConfig)
+mlCfg = readConfg(args.mlConfig)
 if mlCfg['debug']: print(mlCfg)
 
 # LIB INFO

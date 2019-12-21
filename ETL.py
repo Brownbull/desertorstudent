@@ -106,7 +106,6 @@ idx = False
 saveFullDF(enrolls_data, finishedStage, idx)
 saveFullDF(grades_data, finishedStage, idx)
 
-
 # END TIMING
 timeEnd = time.time()
 dtEnd = datetime.fromtimestamp(timeEnd)

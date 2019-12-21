@@ -24,6 +24,12 @@ def checkIfexists(key, tree):
     return True
   return False
 
+def checkIfManyExists(keys, tree):
+  for key in keys:
+    if checkIfexists(key, tree) == False:
+      return False
+  return True
+
 def stageEnd(stageName, df, info, debug):
   dfName = retrieveName(df)
   if debug: print("-"*25 + "\n"+ stageName + " DONE\n" + "-"*25 )
@@ -126,13 +132,13 @@ def join(loader, node):
   seq = loader.construct_sequence(node)
   return ''.join([str(i) for i in seq])
 
-def readMLConfg(mlConfig):
+def readConfg(fConfig):
   # INIT FUNCTIONS
   yaml.add_constructor('!join', join)
 
   # GET README CONFIG
-  if Path(mlConfig).is_file():
-    with open(mlConfig, 'r') as configFile:
+  if Path(fConfig).is_file():
+    with open(fConfig, 'r') as configFile:
       return yaml.load(configFile)
   else:
-    sys.exit('Error: File ' + mlConfig + " was not found.")
+    sys.exit('Error: File ' + fConfig + " was not found.")
