@@ -3,6 +3,12 @@ import sys
 import yaml
 import inspect
 from pathlib import Path
+# EXCEL
+import xlwt
+from xlwt.Workbook import *
+import pandas as pd
+from pandas import ExcelWriter
+import xlsxwriter
 
 # https://stackoverflow.com/questions/18425225/getting-the-name-of-a-variable-as-a-string/18425523
 def retrieveName(var):
@@ -119,3 +125,33 @@ def readConfg(fConfig):
       return yaml.load(configFile)
   else:
     sys.exit('Error: File ' + fConfig + " was not found.")
+
+# SAVE DATA on EXCEL format
+def save2xlsx(folderPath, fileName, excelJson, idx):
+  """
+  This function will store data in a xlsx format
+  Input: 
+    folderPath: Path of FOLDER to store file
+    fileName: NAME of file to store in folderPath, xlsx will be added
+    excelJson -> Example:
+      excelJson = [
+        {
+          "sheetName": 'train',
+          "sheetData": [ train_X, train_y ]
+        },
+        {
+          "sheetName": 'test',
+          "sheetData": [ test_X, test_y ]
+        }
+      ]
+    idx: flag for Index column in excel
+  """
+  # SET WRITE VARS
+  setOrCreatePath(folderPath)
+  writer = pd.ExcelWriter(folderPath + fileName + ".xlsx", engine='xlsxwriter')
+
+  # WRITE EXCEL
+  for sheet in excelJson:
+    for i, data in enumerate(sheet['sheetData']):
+      data.to_excel(writer, sheet_name=sheet['sheetName'], startcol=i, index=idx)
+  writer.save()

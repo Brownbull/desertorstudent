@@ -6,12 +6,13 @@
 from env.Include.ml.imports import *
 from env.Include.ml.visual import *
 
-def SLR_input(modelName, dataset, config):
+import xlwt
+from xlwt.Workbook import *
+from pandas import ExcelWriter
+import xlsxwriter
 
-  return 0
-
-def SLR_train(modelName, dataset, config):
-  funcName = "SLR_train"
+def SLR_input(folderPath, modelName, dataset, config):
+  funcName = "SLR_input"
   # Select Features
   features_X = [config['x']]
   X = dataset[features_X]
@@ -22,24 +23,49 @@ def SLR_train(modelName, dataset, config):
   from sklearn.model_selection import train_test_split
   train_X, test_X, train_y, test_y = train_test_split(X, y, test_size = 0.2, random_state = 0)
 
+  # Check log and proceed
+  if checkIfexists('log', config):
+    if config['log'] == 'all':
+      excelJson = [
+        {
+          "sheetName": 'train',
+          "sheetData": [ train_X, train_y ]
+        },
+        {
+          "sheetName": 'test',
+          "sheetData": [ test_X, test_y ]
+        }
+      ]
+      save2xlsx(folderPath, funcName, excelJson, False)
+
+  return {
+    'train_X': train_X,
+    'test_X': test_X,
+    'train_y': train_y,
+    'test_y': test_y
+  }
+
+def SLR_train(folderPath, modelName, ds, config):
+  funcName = "SLR_train"
+
   # Fitting SLR to the training set
   from sklearn.linear_model import LinearRegression
   regressor = LinearRegression()
-  regressor.fit(train_X, train_y)
+  regressor.fit(ds['train_X'], ds['train_y'])
 
   # Predict
-  pred_y = regressor.predict(test_X)
-  pred_y = (pred_y > 0.5) 
+  pred_y_raw = regressor.predict(ds['test_X'])
+  pred_y = (pred_y_raw > 0.5) 
 
-  show2dScatter(train_X, train_y, config['y'], config['x'], regressor, modelName, config['show'])
-
-  # return regressor, thisModelName, test_y, pred_y
+  # Visualization
+  show2dScatter(ds['train_X'], ds['train_y'], config['y'], config['x'], regressor, modelName, config['show'])
 
   return {
     'config': config,
     'model': regressor,
     'x' : config['x'], 
     'y' : config['y'],
-    'test_y' : test_y,
+    'test_y' : ds['test_y'],
+    'pred_y_raw': pred_y_raw,
     'pred_y': pred_y
   }

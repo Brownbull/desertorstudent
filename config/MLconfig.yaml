@@ -31,9 +31,10 @@ models: [
   {
     type: slr,
     desc: Simple Linear Regression,
-    x: MotherEd_5,
+    x: MotherEd,
     y: S2_GRD_2TO29,
-    show: file
+    show: file,
+    log: all
   },
   # {
   #   type: mlr,

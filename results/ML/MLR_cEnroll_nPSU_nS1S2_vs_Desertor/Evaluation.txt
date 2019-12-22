@@ -1,7 +1,0 @@
-Model:MLR_cEnroll_nPSU_nS1S2_vs_Desertor 
-        x: LangScr, S1_DRP, S1_GRD_1TO19, S1_GRD_4TO49, S1_GRD_5TO59, S2_GRD_1TO19, S2_GRD_3TO39, S2_GRD_4TO49, S2_GRD_5TO59, S2_GRD_6TO7, S2_VS_S1, SchoolRegion_1, SchoolRegion_2, SchoolRegion_3, SchoolType_2, MotherEd_7, Campus_1, PostulationType_1
-        y:   Desertor
-      Accuracy:    0.7777777777777778
-     Precision:    0.8648648648648649
-        Recall:    0.8205128205128205
-      F1_Score:    0.8421052631578947

@@ -1,0 +1,7 @@
+Model:SLR_MotherEd_vs_S2_GRD_2TO29 
+        x: M, o, t, h, e, r, E, d
+        y: S2_GRD_2TO29
+      Accuracy:    0.2926829268292683
+     Precision:  0.034482758620689655
+        Recall:                   0.5
+      F1_Score:   0.06451612903225806

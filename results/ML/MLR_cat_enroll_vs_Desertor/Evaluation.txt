@@ -1,7 +1,0 @@
-Model:MLR_cat_enroll_vs_Desertor 
-        x: SchoolRegion_1, SchoolRegion_2, SchoolRegion_3, SchoolType_2, PostulationType_1
-        y:   Desertor
-      Accuracy:    0.6851851851851852
-     Precision:                   1.0
-        Recall:    0.6851851851851852
-      F1_Score:    0.8131868131868133

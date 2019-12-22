@@ -80,14 +80,18 @@ OutDir = "results/ML/"
 for config in reqModls:
   modelType = config['type']
   print("Processing model type:", modelType)
+
   # SLR
   if modelType.upper() == 'SLR':
     # VALIDATE CONFG
     if checkIfexists('x', config) and checkIfexists('y', config) and checkIfexists('show', config):
-      # Model Name
+      # Model Name & Folder Path
       modelName = "SLR_" + config['x'] + "_vs_" + config['y']
-      # TRAIN
-      traindMdls[modelName] = SLR_train(modelName, X_enc, config)
+      folderPath = OutDir + modelName + "/"
+      # INPUT
+      datasets = SLR_input(folderPath, modelName, X, config)
+      # TRAIN & PREDICT
+      traindMdls[modelName] = SLR_train(folderPath, modelName, datasets, config)
       # EVALUATE
       evaluateRegModel(
         traindMdls[modelName]['test_y'], traindMdls[modelName]['pred_y'], 
@@ -100,9 +104,9 @@ for config in reqModls:
   elif modelType.upper() == 'MLR':
     # VALIDATE CONFG
     if checkIfexists('x', config) and checkIfexists('y', config) and checkIfexists('show', config) and checkIfexists('xCategorical', config) and checkIfexists('xColNames', config):
-      # Model Name
+      # Model Name & Folder Path
       modelName = "MLR_" + config['xColNames'] + "_vs_" + config['y']
-      # TRAIN
+      # TRAIN & PREDICT
       traindMdls[modelName] = MLR_train(modelName, X, Y, config)
       print("MLR Xcols")
       print(traindMdls[modelName]['x'])
@@ -117,9 +121,9 @@ for config in reqModls:
   # Decision Tree
   elif modelType.upper() == 'DT':
     if checkIfexists('x', config) and checkIfexists('y', config) and checkIfexists('show', config):
-      # Model Name
+      # Model Name & Folder Path
       modelName = "DT_" + config['xColNames'] + "_vs_" + config['y']
-      # TRAIN
+      # TRAIN & PREDICT
       traindMdls[modelName]  = DT_train(modelName, X, Y, config)
       # EVALUATE
       evaluateRegModel(
@@ -133,11 +137,11 @@ for config in reqModls:
   elif modelType.upper() == 'KMEANS':
     # VALIDATE CONFG
     if checkIfexists('x', config) and checkIfexists('y', config) and checkIfexists('show', config):
-      # Model Name
+      # Model Name & Folder Path
       modelName = "Kmeans_" + config['x'] + "_vs_" + config['y']
       # ELBOW
       n_clusters = KMeans_elbow(OutDir + modelName + "/", modelName, dataset, config)
-      # TRAIN
+      # TRAIN & PREDICT
       traindMdls[modelName] = KMeans_train(OutDir + modelName + "/", modelName, dataset, config, n_clusters)
     else:
       # Conf Error
