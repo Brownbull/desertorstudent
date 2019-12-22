@@ -2,6 +2,11 @@ from pathlib import Path
 from env.Include.model.tools import *
 from env.Include.model.imports import *
 
+def savePlt(plt, OutDir, FileName):
+  setOrCreatePath(OutDir)
+  plt.savefig(OutDir + FileName)
+  print("savePlt: " + OutDir + FileName)
+
 def show2dScatter(train_X, train_y, y, x, regressor, thisModelName, show):
   if show in ['inline', 'file']:
     graphCongInit()

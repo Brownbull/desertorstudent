@@ -72,13 +72,14 @@ from env.Include.model.Kmeans import *
 
 reqModls = mlCfg['models']
 traindMdls = {}
+OutDir = "results/ML/"
 
 # TRAIN MODELS
 for config in reqModls:
   modelType = config['type']
   print("Processing model type:", modelType)
   # SLR
-  if modelType in ['slr', 'SLR']:
+  if modelType.upper() == 'SLR':
     # VALIDATE CONFG
     if checkIfexists('x', config) and checkIfexists('y', config) and checkIfexists('show', config):
       # Model Name
@@ -94,7 +95,7 @@ for config in reqModls:
       print("Config in error for model: " + modelName)
   
   # MLR
-  elif modelType in ['mlr', 'MLR']:
+  elif modelType.upper() == 'MLR':
     # VALIDATE CONFG
     if checkIfexists('x', config) and checkIfexists('y', config) and checkIfexists('show', config) and checkIfexists('xCategorical', config) and checkIfexists('xColNames', config):
       # Model Name
@@ -112,7 +113,7 @@ for config in reqModls:
       print("Config in error for model: " + modelName)
 
   # Decision Tree
-  elif modelType in ['dt', 'DT']:
+  elif modelType.upper() == 'DT':
     if checkIfexists('x', config) and checkIfexists('y', config) and checkIfexists('show', config):
       # Model Name
       modelName = "DT_" + config['xColNames'] + "_vs_" + config['y']
@@ -127,13 +128,15 @@ for config in reqModls:
       print("Config in error for model: " + modelName)
 
   # Kmeans
-  elif modelType in ['kmeans', 'Kmeans', 'KMEANS']:
+  elif modelType.upper() == 'KMEANS':
     # VALIDATE CONFG
     if checkIfexists('x', config) and checkIfexists('y', config) and checkIfexists('show', config):
       # Model Name
       modelName = "Kmeans_" + config['x'] + "_vs_" + config['y']
+      # ELBOW
+      n_clusters = KMeans_elbow(OutDir + modelName + "/", modelName, dataset, config)
       # TRAIN
-      # traindMdls[modelName] = KMeans_train(modelName, dataset, config)
+      traindMdls[modelName] = KMeans_train(OutDir + modelName + "/", modelName, dataset, config, n_clusters)
       # # EVALUATE
       # evaluateRegModel(
       #   traindMdls[modelName]['test_y'], traindMdls[modelName]['pred_y'], 
