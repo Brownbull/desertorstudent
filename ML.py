@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 """
   @author: Brownbull - Gabriel Carcamo - carcamo.gabriel@gmail.com
+  ML - Machine Learning Module
 """
 # IMPORT LIBRARIES
 from env.Include.lib.functions import *
-from env.Include.model.tools import *
-from env.Include.model.processing import *
-from env.Include.model.visual import *
-from env.Include.model.evaluate import *
-from env.Include.model.imports import *
-# import env.Include.model.features as x
+from env.Include.ml.optimize import *
+from env.Include.ml.processing import *
+from env.Include.ml.visual import *
+from env.Include.ml.evaluate import *
+from env.Include.ml.imports import *
+# import env.Include.ml.features as x
 
 # CHECK ARGUMENTS
 parser = argparse.ArgumentParser(description='Main process of ML implementation to estimate rate of student desertion.')
@@ -65,10 +66,11 @@ X = dataset[mlCfg['ID'] + mlCfg['cat_enroll'] + mlCfg['num_PSU'] + mlCfg['num_S1
 Y = dataset[mlCfg['Target']]
 
 # CALL ML MODELS
-from env.Include.model.SLR import *
-from env.Include.model.MLR import *
-from env.Include.model.DT import *
-from env.Include.model.Kmeans import *
+from env.Include.ml.SLR import *
+from env.Include.ml.MLR import *
+from env.Include.ml.DT import *
+from env.Include.ml.Kmeans import *
+from env.Include.ml.PCA import *
 
 reqModls = mlCfg['models']
 traindMdls = {}
@@ -127,7 +129,7 @@ for config in reqModls:
       # Conf Error
       print("Config in error for model: " + modelName)
 
-  # Kmeans
+  # KMEANS
   elif modelType.upper() == 'KMEANS':
     # VALIDATE CONFG
     if checkIfexists('x', config) and checkIfexists('y', config) and checkIfexists('show', config):
@@ -137,13 +139,10 @@ for config in reqModls:
       n_clusters = KMeans_elbow(OutDir + modelName + "/", modelName, dataset, config)
       # TRAIN
       traindMdls[modelName] = KMeans_train(OutDir + modelName + "/", modelName, dataset, config, n_clusters)
-      # # EVALUATE
-      # evaluateRegModel(
-      #   traindMdls[modelName]['test_y'], traindMdls[modelName]['pred_y'], 
-        # modelName, traindMdls[modelName])
     else:
       # Conf Error
       print("Config in error for model: " + modelName)
+  
  
   # Model not listed    
   else:

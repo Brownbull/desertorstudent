@@ -5,8 +5,8 @@ Ones/NEMScr/Ranking/LangScr/MathScr/SchoolRegion_1/SchoolRegion_2/SchoolRegion_3
 Dep. Variable:               Desertor   R-squared:                       0.130
 Model:                            OLS   Adj. R-squared:                  0.100
 Method:                 Least Squares   F-statistic:                     4.308
-Date:                Sat, 21 Dec 2019   Prob (F-statistic):           1.21e-08
-Time:                        19:48:59   Log-Likelihood:                -303.45
+Date:                Sun, 22 Dec 2019   Prob (F-statistic):           1.21e-08
+Time:                        18:13:39   Log-Likelihood:                -303.45
 No. Observations:                 537   AIC:                             644.9
 Df Residuals:                     518   BIC:                             726.3
 Df Model:                          18                                         

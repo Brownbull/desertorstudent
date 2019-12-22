@@ -28,13 +28,13 @@ Target: &Target 'Desertor'
 # Model Setup
 sample: 0
 models: [
-  # {
-  #   type: slr,
-  #   desc: Simple Linear Regression,
-  #   x: MotherEd_5,
-  #   y: S2_GRD_2TO29,
-  #   show: file
-  # },
+  {
+    type: slr,
+    desc: Simple Linear Regression,
+    x: MotherEd_5,
+    y: S2_GRD_2TO29,
+    show: file
+  },
   # {
   #   type: mlr,
   #   desc: Multiple Linear Regression,
@@ -137,33 +137,45 @@ models: [
   #   show: file,
   #   Optimize: True
   # },
+  # {
+  #   type: kmeans,
+  #   desc: K Means,
+  #   x: MathScr,
+  #   y: S2_GRD_4TO49,
+  #   show: file
+  # },
+  # {
+  #   type: kmeans,
+  #   desc: K Means,
+  #   x: MathScr,
+  #   y: ScienScr,
+  #   show: file
+  # },
+  # {
+  #   type: kmeans,
+  #   desc: K Means,
+  #   x: MathScr,
+  #   y: *Target,
+  #   show: file
+  # },
+  # {
+  #   type: kmeans,
+  #   desc: K Means,
+  #   x: MathScr,
+  #   y: NEMScr,
+  #   show: file
+  # },
   {
-    type: kmeans,
-    desc: K Means,
-    x: MathScr,
-    y: S2_GRD_4TO49,
-    show: file
-  },
-  {
-    type: kmeans,
-    desc: K Means,
-    x: MathScr,
-    y: ScienScr,
-    show: file
-  },
-  {
-    type: kmeans,
-    desc: K Means,
-    x: MathScr,
+    type: svm,
+    desc: Support Vector Machine,
+    xColNames:  cEnroll_nPSU,
+    xCategorical: *cat_enroll,
+    x: *cEnroll_nPSU,
     y: *Target,
-    show: file
-  },
-  {
-    type: kmeans,
-    desc: K Means,
-    x: MathScr,
-    y: NEMScr,
-    show: file
+    SL: 0.05,
+    traceOptimization: True,
+    show: file,
+    Optimize: True
   }
 
 ]

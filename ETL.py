@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 """
   @author: Brownbull - Gabriel Carcamo - carcamo.gabriel@gmail.com
+  ETL - Extract Transform Load Module
 """
 # IMPORT LIBRARIES
 from env.Include.lib.functions import *
-from env.Include.pre.imports_pre import *
-from env.Include.pre.util_grades import *
-from env.Include.pre.util_enrolls import *
-from env.Include.pre.target import *
-from env.Include.pre.aggregate import * 
+from env.Include.etl.imports import *
+from env.Include.etl.util_grades import *
+from env.Include.etl.util_enrolls import *
+from env.Include.etl.target import *
+from env.Include.etl.aggregate import * 
 
 # CHECK ARGUMENTS
 parser = argparse.ArgumentParser(description='ETL process of ML implementation to estimate rate of student desertion.')

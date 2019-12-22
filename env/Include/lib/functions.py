@@ -16,6 +16,11 @@ def retrieveName(var):
     if len(names) > 0:
       return names[0]
 
+def setOrCreatePath(outDir):
+  # SET WRITE DIRECTORY
+  if not Path(outDir).exists():
+    os.makedirs(outDir)
+
 def props(cls):   
   return [i for i in cls.__dict__.keys() if i[:1] != '_']
 
@@ -80,7 +85,6 @@ def dfStats(df, dfName, stageName):
   fNull.write(dfName + ' columns with null values:\n')
   ceros = (df == 0).sum(axis=0)
   for key,value in ceros.iteritems():
-    # https://stackoverflow.com/questions/8234445/python-format-output-string-right-alignment
     fNull.write('{:>30}  {:>20}\n'.format(key, str(value)))
   fNull.close()
   print(outDir +"/ceros.txt Created")
@@ -99,33 +103,6 @@ def saveFullDF(df, stageName, idx):
   # WRTIE DF
   df.to_csv(outDir + "/" + dfName +  ".csv", index=idx)
   print("Writing... " + outDir + "/" + dfName +  ".csv Created")
-
-# while small is arbitrary, we'll use the common minimum in statistics: 
-# http://nicholasjjackson.com/2012/03/08/sample-size-is-10-a-magic-number/
-def unifyUncommon(df, debug, **kwargs):
-  dfName = retrieveName(df)
-  # Default
-  min = 10
-  # kwargs setup
-  for key, value in kwargs.items(): 
-    if key == 'min':
-      min = value
-  if debug: print("Using min: " + str(min) + " on " + dfName)
-
-  # Function
-  # Get columns to check rare cases
-  categoricalVariables = list(df.select_dtypes(include=['object']).columns.values)
-  if debug: 
-    print(dfName + " - columns checked for unify:")
-    print(categoricalVariables)
-
-  # Replace rare cases in each column
-  for col in categoricalVariables:
-    unifyValue = 'X' * int(df[col].str.len().max())
-    varCounts = (df[col].value_counts() < min)
-    df[col] = df[col].apply(lambda x: unifyValue if varCounts.loc[x] == True else x)
-
-  return df
 
 # YAML CONSTRUCTORS
 def join(loader, node):

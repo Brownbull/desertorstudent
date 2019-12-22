@@ -5,8 +5,8 @@ LangScr/S1_DRP/S1_GRD_1TO19/S1_GRD_4TO49/S1_GRD_5TO59/S2_BAD/S2_CVL/S2_GRD_1TO19
 Dep. Variable:               Desertor   R-squared (uncentered):                   0.647
 Model:                            OLS   Adj. R-squared (uncentered):              0.629
 Method:                 Least Squares   F-statistic:                              35.99
-Date:                Sat, 21 Dec 2019   Prob (F-statistic):                    3.96e-98
-Time:                        19:49:04   Log-Likelihood:                         -155.74
+Date:                Sun, 22 Dec 2019   Prob (F-statistic):                    3.96e-98
+Time:                        18:13:43   Log-Likelihood:                         -155.74
 No. Observations:                 537   AIC:                                      363.5
 Df Residuals:                     511   BIC:                                      474.9
 Df Model:                          26                                                  

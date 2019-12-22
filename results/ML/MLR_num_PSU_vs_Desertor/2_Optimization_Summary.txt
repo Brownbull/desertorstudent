@@ -5,8 +5,8 @@ Ones/LangScr/MathScr
 Dep. Variable:               Desertor   R-squared:                       0.066
 Model:                            OLS   Adj. R-squared:                  0.060
 Method:                 Least Squares   F-statistic:                     12.49
-Date:                Sat, 21 Dec 2019   Prob (F-statistic):           6.63e-08
-Time:                        19:48:58   Log-Likelihood:                -322.67
+Date:                Sun, 22 Dec 2019   Prob (F-statistic):           6.63e-08
+Time:                        18:13:37   Log-Likelihood:                -322.67
 No. Observations:                 537   AIC:                             653.3
 Df Residuals:                     533   BIC:                             670.5
 Df Model:                           3                                         

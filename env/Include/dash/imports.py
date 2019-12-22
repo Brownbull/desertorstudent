@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+"""
+  @author: Brownbull - Gabriel Carcamo - carcamo.gabriel@gmail.com
+  Imports for Dashboards modules
+"""
 # misc libraries
 import os
 import sys #access to system parameters https://docs.python.org/3/library/sys.html

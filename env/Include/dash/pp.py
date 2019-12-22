@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 @author: Brownbull - Gabriel Carcamo - carcamo.gabriel@gmail.com
-  PP
+  PP - pairplot visualization
 """
 import os
 from pathlib import Path

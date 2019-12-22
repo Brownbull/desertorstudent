@@ -5,8 +5,8 @@ Ones/NEMScr/LangScr/MathScr/SchoolRegion_3/MotherEd_1/MotherEd_3/MotherEd_4/Moth
 Dep. Variable:               Desertor   R-squared:                       0.111
 Model:                            OLS   Adj. R-squared:                  0.094
 Method:                 Least Squares   F-statistic:                     6.582
-Date:                Sat, 21 Dec 2019   Prob (F-statistic):           1.23e-09
-Time:                        19:49:07   Log-Likelihood:                -309.25
+Date:                Sun, 22 Dec 2019   Prob (F-statistic):           1.23e-09
+Time:                        18:13:46   Log-Likelihood:                -309.25
 No. Observations:                 537   AIC:                             640.5
 Df Residuals:                     526   BIC:                             687.7
 Df Model:                          10                                         
