@@ -166,6 +166,8 @@ def save2xlsx(folderPath, fileName, excelJson, idx, dataType):
     cell_format.set_font_size(10)
     cell_format.set_align('left')
     cell_format.set_align('vcenter')
+    row = 0
+    col = 0
 
   # WRITE EXCEL
   for sheet in excelJson:
@@ -175,15 +177,11 @@ def save2xlsx(folderPath, fileName, excelJson, idx, dataType):
   
     elif dataType.upper() == "ROWS":
       worksheet = workbook.add_worksheet(sheet['sheetName'])
-      row = 0
-      col = 0
       for i, data in enumerate(sheet['sheetData']):
         worksheet.write_row(row + i, col, tuple(data), cell_format)
       
     elif dataType.upper() == "COLS":
       worksheet = workbook.add_worksheet(sheet['sheetName'])
-      row = 0
-      col = 0
       for i, data in enumerate(sheet['sheetData']):
         worksheet.write_column(row, col + i, tuple(data), cell_format)
       
