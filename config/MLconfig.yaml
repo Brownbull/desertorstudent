@@ -28,14 +28,14 @@ Target: &Target 'Desertor'
 # Model Setup
 sample: 0
 models: [
-  {
-    type: slr,
-    desc: Simple Linear Regression,
-    x: MotherEd,
-    y: S2_GRD_2TO29,
-    show: file,
-    log: all
-  },
+  # {
+  #   type: slr,
+  #   desc: Simple Linear Regression,
+  #   x: MotherEd,
+  #   y: S2_GRD_2TO29,
+  #   show: file,
+  #   log: all
+  # },
   # {
   #   type: mlr,
   #   desc: Multiple Linear Regression,
@@ -47,17 +47,17 @@ models: [
   #   traceOptimization: True,
   #   show: file
   # },
-  # {
-  #   type: mlr,
-  #   desc: Multiple Linear Regression,
-  #   xColNames: cat_enroll,
-  #   xCategorical: *cat_enroll,
-  #   x: *cat_enroll,
-  #   y: *Target,
-  #   SL: 0.05,
-  #   traceOptimization: True,
-  #   show: file
-  # },
+  {
+    type: mlr,
+    desc: Multiple Linear Regression,
+    xColNames: cat_enroll,
+    xCategorical: *cat_enroll,
+    x: *cat_enroll,
+    y: *Target,
+    SL: 0.05,
+    traceOptimization: True,
+    show: file
+  },
   # {
   #   type: mlr,
   #   desc: Multiple Linear Regression,

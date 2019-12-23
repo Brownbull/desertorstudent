@@ -9,6 +9,8 @@ from xlwt.Workbook import *
 import pandas as pd
 from pandas import ExcelWriter
 import xlsxwriter
+import win32com.client as win32
+
 
 # https://stackoverflow.com/questions/18425225/getting-the-name-of-a-variable-as-a-string/18425523
 def retrieveName(var):
@@ -59,8 +61,7 @@ def stageEndSet(stageName, dfs, info, debug):
 def dfStats(df, dfName, stageName):
   # SET WRITE DIRECTORY
   outDir = "reports/" + stageName + "/" + dfName
-  if not Path(outDir).exists():
-    os.makedirs(outDir)
+  setOrCreatePath(outDir)
 
   # START
   print("-"*20)
@@ -103,8 +104,7 @@ def saveFullDF(df, stageName, idx):
   dfName = retrieveName(df)
   # SET WRITE DIRECTORY
   outDir = "data/" + stageName
-  if not Path(outDir).exists():
-    os.makedirs(outDir)
+  setOrCreatePath(outDir)
 
   # WRTIE DF
   df.to_csv(outDir + "/" + dfName +  ".csv", index=idx)
@@ -127,7 +127,7 @@ def readConfg(fConfig):
     sys.exit('Error: File ' + fConfig + " was not found.")
 
 # SAVE Dataframes on EXCEL format
-def saveDFs2xlsx(folderPath, fileName, excelJson, idx, dataType):
+def save2xlsx(folderPath, fileName, excelJson, idx, dataType):
   """
   This function will store data in a xlsx format
   Input: 
@@ -154,33 +154,57 @@ def saveDFs2xlsx(folderPath, fileName, excelJson, idx, dataType):
   setOrCreatePath(folderPath)
   fileCreated = False
   xlsxName = folderPath + fileName + ".xlsx"
+  absPath = os.getcwd() + "/" + xlsxName
+
+  # INITIALIZE EXCEL
+  if dataType.upper() == "DF":
+    writer = pd.ExcelWriter(xlsxName, engine='xlsxwriter')
+  elif dataType.upper() in ["ROWS", "COLS"]:
+    workbook = xlsxwriter.Workbook(xlsxName)
+    cell_format = workbook.add_format()
+    cell_format.set_font_name('Consolas')
+    cell_format.set_font_size(10)
+    cell_format.set_align('left')
+    cell_format.set_align('vcenter')
 
   # WRITE EXCEL
   for sheet in excelJson:
     if dataType.upper() == "DF":
-      writer = pd.ExcelWriter(xlsxName, engine='xlsxwriter')
       for i, data in enumerate(sheet['sheetData']):
         data.to_excel(writer, sheet_name=sheet['sheetName'], startcol=i, index=idx)
-      writer.save()
-      fileCreated = True
+  
     elif dataType.upper() == "ROWS":
-      workbook =xlsxwriter.Workbook(xlsxName)
       worksheet = workbook.add_worksheet(sheet['sheetName'])
       row = 0
       col = 0
       for i, data in enumerate(sheet['sheetData']):
-        worksheet.write_row(row + i, col, tuple(data))
-      workbook.close()
-      fileCreated = True
+        worksheet.write_row(row + i, col, tuple(data), cell_format)
+      
     elif dataType.upper() == "COLS":
-      workbook =xlsxwriter.Workbook(xlsxName)
       worksheet = workbook.add_worksheet(sheet['sheetName'])
       row = 0
       col = 0
       for i, data in enumerate(sheet['sheetData']):
-        worksheet.write_column(row, col + i, tuple(data))
-      workbook.close()
-      fileCreated = True
+        worksheet.write_column(row, col + i, tuple(data), cell_format)
+      
+
+  # CLOSE EXCEL
+  if dataType.upper() == "DF":
+    writer.save()
+    fileCreated = True
+  elif dataType.upper() in ["ROWS", "COLS"]:
+    workbook.close()
+    # Adjust column width
+    excel = win32.gencache.EnsureDispatch('Excel.Application')
+    wb = excel.Workbooks.Open(absPath)
+    for sheet in excelJson: 
+      ws = wb.Worksheets(sheet['sheetName'])
+      ws.Columns.AutoFit()
+      ws.Columns.WrapText = True
+      ws.Columns.AutoFit()
+    wb.Save()
+    excel.Application.Quit()
+    fileCreated = True
 
   # TELL RESULTS    
   if fileCreated:

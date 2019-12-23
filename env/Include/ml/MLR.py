@@ -8,7 +8,8 @@ from env.Include.ml.processing import *
 from env.Include.ml.visual import *
 from env.Include.ml.optimize import *
 
-def MLR_train(modelName, X, Y, config):
+def MLR_input(folderPath, modelName, X, Y, config):
+  funcName = "MLR_input"
   # Select Features
   X = X[config['x']]
   # Select Target 
@@ -23,8 +24,7 @@ def MLR_train(modelName, X, Y, config):
   X_enc_cols = list(X_enc.columns.values)
 
   # MLR Optimize
-  Xcols, cols2DropDesc = backwardElimination(X_enc, X_enc_cols, y, modelName, config)
-  # Xcols, cols2DropDesc = MLR_optimizeFeatures(X, config['x'], y, modelName, config)
+  Xcols, cols2DropDesc = backwardElimination(X_enc, X_enc_cols, y, folderPath, modelName, config)
   # Set Optimal cols
   X_enc = X_enc[Xcols]
 
@@ -32,27 +32,41 @@ def MLR_train(modelName, X, Y, config):
   from sklearn.model_selection import train_test_split
   train_X, test_X, train_y, test_y = train_test_split(X_enc, y, test_size = 0.2, random_state = 0)
 
+  return {
+    'Xcols': Xcols,
+    'cols2DropDesc': cols2DropDesc,
+    'X_enc': X_enc,
+    'y': y,
+    'train_X': train_X,
+    'test_X': test_X,
+    'train_y': train_y,
+    'test_y': test_y
+  } 
+  
+
+def MLR_train(folderPath, modelName, ds, config):
+  funcName = "MLR_train"
+
   # Fitting SLR to the training set
   from sklearn.linear_model import LinearRegression
   regressor = LinearRegression()
-  regressor.fit(train_X, train_y)
+  regressor.fit(ds['train_X'], ds['train_y'])
 
   # Predict
-  pred_y = regressor.predict(test_X)
-  pred_y = (pred_y > 0.5)
+  pred_y_raw = regressor.predict(ds['test_X'])
+  pred_y = (pred_y_raw > 0.5) 
   
-  regressor.fit(train_X, train_y)
-
   # Show graph
-  df = X_enc
-  df[config['y']] = y
+  df = ds['X_enc']
+  df[config['y']] = ds['y']
   showCorrHeatMap(df, modelName, config['xColNames'], config['y'], config['show'])
   
   return {
     'config': config,
     'model': regressor,
-    'x' : Xcols, 
+    'x' : ds['Xcols'], 
     'y' : config['y'],
-    'test_y' : test_y,
+    'test_y' : ds['test_y'],
+    'pred_y_raw': pred_y_raw,
     'pred_y': pred_y
   }

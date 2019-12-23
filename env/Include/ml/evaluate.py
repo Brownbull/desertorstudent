@@ -3,9 +3,9 @@
   @author: Brownbull - Gabriel Carcamo - carcamo.gabriel@gmail.com
   evaluate Models
 """
-import os
-from pathlib import Path
+from env.Include.ml.imports import *
 from env.Include.lib.functions import *
+
 
 def evaluateRegModel(test_y, pred_y, folderPath, modelName, modelResults):
   funcName = "evaluateRegModel"
@@ -45,7 +45,7 @@ def evaluateRegModel(test_y, pred_y, folderPath, modelName, modelResults):
       ]
     }
   ]
-  saveDFs2xlsx(folderPath, funcName, excelJson, False, "rows")
+  save2xlsx(folderPath, funcName, excelJson, False, "rows")
 
 def evaluateCLModel(modelName, classifier, features, target):
   # SET WRITE DIRECTORY

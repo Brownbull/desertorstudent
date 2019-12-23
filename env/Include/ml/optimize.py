@@ -3,12 +3,11 @@
   @author: Brownbull - Gabriel Carcamo - carcamo.gabriel@gmail.com
   Optimize Models Features
 """
-import os
-import pandas as pd
-from pathlib import Path
+from env.Include.lib.functions import *
 from env.Include.ml.imports import *
 
-def backwardElimination(X, Xcols, y, thisModelName, config):
+def backwardElimination(X, Xcols, y, folderPath, thisModelName, config):
+  funcName = "backwardElimination"
   # SET WRITE DIRECTORY
   outDir = "results/ML/" + thisModelName
   if not Path(outDir).exists():
@@ -21,6 +20,7 @@ def backwardElimination(X, Xcols, y, thisModelName, config):
   
   cols2DropAsc = []
 
+  excelJson = []
   # Backward Elimination
   for i in range(0, int(len(Xcols))):
     opt_X = X[Xcols]
@@ -39,12 +39,25 @@ def backwardElimination(X, Xcols, y, thisModelName, config):
           # traceOpt
           if config['traceOptimization']:
             # Write Optimization Step
-            fOpt = open(outDir +"/"+ str(i) + "_Optimization_Summary.txt", 'w+')
-            fOpt.write("Columns on Logic:\n")
-            fOpt.write("/".join(Xcols) + "\n")
-            fOpt.write(str(model_OLS.summary()))
-            fOpt.close()
-            print(outDir +"/"+ str(len(Xcols)) + "_Optimization_Summary.txt Created")
+            for js in excelJson:
+              if js["sheetName"] == str(len(Xcols)):
+                excelJson.remove(js)   
+            # Arrange Feature Array  
+            colsIn = []
+            colsIn.append("Columns on Logic")
+            for col in Xcols:
+              colsIn.append(col)
+            
+            # Append Json Element
+            excelJson.append( 
+              {
+                "sheetName": str(len(Xcols)),
+                "sheetData": [ 
+                  colsIn,
+                  ["Summary", str(model_OLS.summary())]
+                ]
+              } 
+            )
           else:
             print("Drop Feature: ", j,": ", col, "- Pval: ", Pmax)
           
@@ -63,11 +76,35 @@ def backwardElimination(X, Xcols, y, thisModelName, config):
   cols2DropDesc = cols2DropAsc[::-1]
 
   # Write Final Optimization Results
-  fOpt = open(outDir +"/"+ str(len(Xcols)) + "_Optimization_Summary.txt", 'w+')
-  fOpt.write("Columns on Logic:\n")
-  fOpt.write("/".join(Xcols) + "\n")
-  fOpt.write(str(model_OLS.summary()))
-  fOpt.close()
-  print(outDir +"/"+ str(len(Xcols)) + "_Optimization_Summary.txt Created")
+  # fOpt = open(outDir +"/"+ str(len(Xcols)) + "_Optimization_Summary.txt", 'w+')
+  # fOpt.write("Columns on Logic:\n")
+  # fOpt.write("/".join(Xcols) + "\n")
+  # fOpt.write(str(model_OLS.summary()))
+  # fOpt.close()
+  # print(outDir +"/"+ str(len(Xcols)) + "_Optimization_Summary.txt Created")
+
+  # Write Final Optimization Results
+  for js in excelJson:
+    if js["sheetName"] == str(len(Xcols)):
+      excelJson.remove(js)   
+  # Arrange Feature Array  
+  colsIn = []
+  colsIn.append("Columns on Logic")
+  for col in Xcols:
+    colsIn.append(col)
+  
+  # Append Json Element
+  excelJson.append( 
+    {
+      "sheetName": str(len(Xcols)),
+      "sheetData": [ 
+        colsIn,
+        ["Summary", str(model_OLS.summary())]
+      ]
+    } 
+  )
+
+  # Write Excel Optimization File 
+  save2xlsx(folderPath, funcName, excelJson, False, "rows")
 
   return Xcols, cols2DropDesc

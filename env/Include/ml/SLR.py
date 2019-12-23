@@ -37,7 +37,7 @@ def SLR_input(folderPath, modelName, dataset, config):
           "sheetData": [ test_X, test_y ]
         }
       ]
-      saveDFs2xlsx(folderPath, funcName, excelJson, False, "df")
+      save2xlsx(folderPath, funcName, excelJson, False, "df")
 
   return {
     'train_X': train_X,

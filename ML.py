@@ -106,10 +106,11 @@ for config in reqModls:
     if checkIfexists('x', config) and checkIfexists('y', config) and checkIfexists('show', config) and checkIfexists('xCategorical', config) and checkIfexists('xColNames', config):
       # Model Name & Folder Path
       modelName = "MLR_" + config['xColNames'] + "_vs_" + config['y']
+      folderPath = OutDir + modelName + "/"
+      # INPUT
+      datasets = MLR_input(folderPath, modelName, X, Y, config)
       # TRAIN & PREDICT
-      traindMdls[modelName] = MLR_train(modelName, X, Y, config)
-      print("MLR Xcols")
-      print(traindMdls[modelName]['x'])
+      traindMdls[modelName] = MLR_train(folderPath, modelName, datasets, config)
       # EVALUATE
       evaluateRegModel(
         traindMdls[modelName]['test_y'], traindMdls[modelName]['pred_y'], 
