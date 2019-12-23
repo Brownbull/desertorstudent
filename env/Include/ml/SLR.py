@@ -26,6 +26,7 @@ def SLR_input(folderPath, modelName, dataset, config):
   # Check log and proceed
   if checkIfexists('log', config):
     if config['log'] == 'all':
+      # Save train and test data to excel
       excelJson = [
         {
           "sheetName": 'train',
@@ -36,7 +37,7 @@ def SLR_input(folderPath, modelName, dataset, config):
           "sheetData": [ test_X, test_y ]
         }
       ]
-      save2xlsx(folderPath, funcName, excelJson, False)
+      saveDFs2xlsx(folderPath, funcName, excelJson, False, "df")
 
   return {
     'train_X': train_X,

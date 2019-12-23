@@ -5,10 +5,12 @@
 """
 import os
 from pathlib import Path
+from env.Include.lib.functions import *
 
-def evaluateRegModel(test_y, pred_y, thisModelName, modelResults):
+def evaluateRegModel(test_y, pred_y, folderPath, modelName, modelResults):
+  funcName = "evaluateRegModel"
   # SET WRITE DIRECTORY
-  outDir = "results/ML/" + thisModelName
+  outDir = "results/ML/" + modelName
   if not Path(outDir).exists():
     os.makedirs(outDir)
 
@@ -29,20 +31,25 @@ def evaluateRegModel(test_y, pred_y, thisModelName, modelResults):
   F1_Score = 2 * Precision * Recall / (Precision + Recall)
 
   # Write Evaluation Results
-  fRes = open(outDir +"/Evaluation.txt", 'w+')
-  fRes.write('{:>5} \n'.format('Model:' + thisModelName))
-  fRes.write('{:>10} {:>10}\n'.format('x:', str(", ".join(modelResults['x']))))
-  fRes.write('{:>10} {:>10}\n'.format('y:', modelResults['y']))
-  fRes.write('{:>15}  {:>20}\n'.format('Accuracy:', Accuracy))
-  fRes.write('{:>15}  {:>20}\n'.format('Precision:', Precision))
-  fRes.write('{:>15}  {:>20}\n'.format('Recall:', Recall))
-  fRes.write('{:>15}  {:>20}\n'.format('F1_Score:', F1_Score))
-  fRes.close()
-  print(outDir +"/Evaluation.txt Created")
+  excelJson = [
+    {
+      "sheetName": 'Indicators',
+      "sheetData": [ 
+        ["Model", modelName],
+        ["x", str(", ".join(modelResults['x']))],
+        ["y", modelResults['y']],
+        ["Accuracy", Accuracy],
+        ["Precision", Precision],
+        ["Recall", Recall],
+        ["F1_Score", F1_Score]
+      ]
+    }
+  ]
+  saveDFs2xlsx(folderPath, funcName, excelJson, False, "rows")
 
-def evaluateCLModel(thisModelName, classifier, features, target):
+def evaluateCLModel(modelName, classifier, features, target):
   # SET WRITE DIRECTORY
-  outDir = "results/ML/" + thisModelName
+  outDir = "results/ML/" + modelName
   if not Path(outDir).exists():
     os.makedirs(outDir)
 
@@ -51,7 +58,7 @@ def evaluateCLModel(thisModelName, classifier, features, target):
 
   # Write Evaluation Results
   fRes = open(outDir +"/Evaluation.txt", 'w+')
-  fRes.write('{:>5} \n'.format('Model:' + thisModelName))
+  fRes.write('{:>5} \n'.format('Model:' + modelName))
   fRes.write("Mean of Scores : " + str(scores.mean()) + "\n")
   for i, s in enumerate(scores):
     fRes.write('{:>10} {:>10}\n'.format(str(i) + ': ', str(s)))

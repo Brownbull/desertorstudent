@@ -95,7 +95,7 @@ for config in reqModls:
       # EVALUATE
       evaluateRegModel(
         traindMdls[modelName]['test_y'], traindMdls[modelName]['pred_y'], 
-        modelName, traindMdls[modelName])
+        folderPath, modelName, traindMdls[modelName])
     else:
       # Conf Error
       print("Config in error for model: " + modelName)
@@ -113,7 +113,7 @@ for config in reqModls:
       # EVALUATE
       evaluateRegModel(
         traindMdls[modelName]['test_y'], traindMdls[modelName]['pred_y'], 
-        modelName, traindMdls[modelName])
+        folderPath, modelName, traindMdls[modelName])
     else:
       # Conf Error
       print("Config in error for model: " + modelName)
@@ -128,7 +128,7 @@ for config in reqModls:
       # EVALUATE
       evaluateRegModel(
         traindMdls[modelName]['test_y'], traindMdls[modelName]['pred_y'], 
-        modelName, traindMdls[modelName])
+        folderPath, modelName, traindMdls[modelName])
     else:
       # Conf Error
       print("Config in error for model: " + modelName)

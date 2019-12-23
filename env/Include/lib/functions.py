@@ -126,8 +126,8 @@ def readConfg(fConfig):
   else:
     sys.exit('Error: File ' + fConfig + " was not found.")
 
-# SAVE DATA on EXCEL format
-def save2xlsx(folderPath, fileName, excelJson, idx):
+# SAVE Dataframes on EXCEL format
+def saveDFs2xlsx(folderPath, fileName, excelJson, idx, dataType):
   """
   This function will store data in a xlsx format
   Input: 
@@ -145,13 +145,36 @@ def save2xlsx(folderPath, fileName, excelJson, idx):
         }
       ]
     idx: flag for Index column in excel
+    dataType: Data Type to write in excel, can be:
+      df -> dataframe
+      rows -> data to write row by row
+      columns -> data to write column by column
   """
   # SET WRITE VARS
   setOrCreatePath(folderPath)
-  writer = pd.ExcelWriter(folderPath + fileName + ".xlsx", engine='xlsxwriter')
+  fileCreated = False
+  xlsxName = folderPath + fileName + ".xlsx"
 
   # WRITE EXCEL
   for sheet in excelJson:
-    for i, data in enumerate(sheet['sheetData']):
-      data.to_excel(writer, sheet_name=sheet['sheetName'], startcol=i, index=idx)
-  writer.save()
+    if dataType.upper() == "DF":
+      writer = pd.ExcelWriter(xlsxName, engine='xlsxwriter')
+      for i, data in enumerate(sheet['sheetData']):
+        data.to_excel(writer, sheet_name=sheet['sheetName'], startcol=i, index=idx)
+      writer.save()
+      fileCreated = True
+    elif dataType.upper() == "ROWS":
+      workbook =xlsxwriter.Workbook(xlsxName)
+      worksheet = workbook.add_worksheet(sheet['sheetName'])
+      row = 0
+      col = 0
+      for i, data in enumerate(sheet['sheetData']):
+        worksheet.write_row(row + i, col, tuple(data))
+      workbook.close()
+      fileCreated = True
+
+  # TELL RESULTS    
+  if fileCreated:
+    print("File Created: " + xlsxName)
+  else:
+    print("File NOT Created: " + xlsxName)
