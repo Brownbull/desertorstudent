@@ -71,17 +71,9 @@ def backwardElimination(X, Xcols, y, folderPath, thisModelName, config):
             break
   
   # Remove ones column
-  # Xcols.remove('Ones')
+  Xcols.remove('Ones')
   # Set dropped columns from last to first
   cols2DropDesc = cols2DropAsc[::-1]
-
-  # Write Final Optimization Results
-  # fOpt = open(outDir +"/"+ str(len(Xcols)) + "_Optimization_Summary.txt", 'w+')
-  # fOpt.write("Columns on Logic:\n")
-  # fOpt.write("/".join(Xcols) + "\n")
-  # fOpt.write(str(model_OLS.summary()))
-  # fOpt.close()
-  # print(outDir +"/"+ str(len(Xcols)) + "_Optimization_Summary.txt Created")
 
   # Write Final Optimization Results
   for js in excelJson:
