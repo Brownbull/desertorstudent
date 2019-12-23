@@ -148,7 +148,7 @@ def saveDFs2xlsx(folderPath, fileName, excelJson, idx, dataType):
     dataType: Data Type to write in excel, can be:
       df -> dataframe
       rows -> data to write row by row
-      columns -> data to write column by column
+      cols -> data to write column by column
   """
   # SET WRITE VARS
   setOrCreatePath(folderPath)
@@ -170,6 +170,15 @@ def saveDFs2xlsx(folderPath, fileName, excelJson, idx, dataType):
       col = 0
       for i, data in enumerate(sheet['sheetData']):
         worksheet.write_row(row + i, col, tuple(data))
+      workbook.close()
+      fileCreated = True
+    elif dataType.upper() == "COLS":
+      workbook =xlsxwriter.Workbook(xlsxName)
+      worksheet = workbook.add_worksheet(sheet['sheetName'])
+      row = 0
+      col = 0
+      for i, data in enumerate(sheet['sheetData']):
+        worksheet.write_column(row, col + i, tuple(data))
       workbook.close()
       fileCreated = True
 
