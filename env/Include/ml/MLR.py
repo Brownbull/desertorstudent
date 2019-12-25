@@ -23,7 +23,7 @@ def MLR_input(folderPath, modelName, X, Y, config):
     X_enc = X
   X_enc_cols = list(X_enc.columns.values)
 
-  # MLR Optimize
+  # Optimize
   Xcols, cols2DropDesc = backwardElimination(X_enc, X_enc_cols, y, folderPath, modelName, config)
   # Set Optimal cols
   X_enc = X_enc[Xcols]
@@ -46,7 +46,6 @@ def MLR_input(folderPath, modelName, X, Y, config):
 
 def MLR_train(folderPath, modelName, ds, config):
   funcName = "MLR_train"
-
   # Fitting SLR to the training set
   from sklearn.linear_model import LinearRegression
   regressor = LinearRegression()

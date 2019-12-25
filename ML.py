@@ -124,8 +124,11 @@ for config in reqModls:
     if checkIfexists('x', config) and checkIfexists('y', config) and checkIfexists('show', config):
       # Model Name & Folder Path
       modelName = "DT_" + config['xColNames'] + "_vs_" + config['y']
+      folderPath = OutDir + modelName + "/"
+      # INPUT
+      datasets = DT_input(folderPath, modelName, X, Y, config)
       # TRAIN & PREDICT
-      traindMdls[modelName]  = DT_train(modelName, X, Y, config)
+      traindMdls[modelName]  = DT_train(folderPath, modelName, datasets, config)
       # EVALUATE
       evaluateRegModel(
         traindMdls[modelName]['test_y'], traindMdls[modelName]['pred_y'], 

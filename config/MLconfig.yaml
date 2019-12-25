@@ -47,17 +47,17 @@ models: [
   #   traceOptimization: True,
   #   show: file
   # },
-  {
-    type: mlr,
-    desc: Multiple Linear Regression,
-    xColNames: cat_enroll,
-    xCategorical: *cat_enroll,
-    x: *cat_enroll,
-    y: *Target,
-    SL: 0.05,
-    traceOptimization: True,
-    show: file
-  },
+  # {
+  #   type: mlr,
+  #   desc: Multiple Linear Regression,
+  #   xColNames: cat_enroll,
+  #   xCategorical: *cat_enroll,
+  #   x: *cat_enroll,
+  #   y: *Target,
+  #   SL: 0.05,
+  #   traceOptimization: True,
+  #   show: file
+  # },
   # {
   #   type: mlr,
   #   desc: Multiple Linear Regression,
@@ -102,18 +102,18 @@ models: [
   #   traceOptimization: True,
   #   show: file
   # },
-  # {
-  #   type: dt,
-  #   desc: Decision Tree,
-  #   xColNames:  cEnroll_nPSU_nS1S2,
-  #   xCategorical: *cat_enroll,
-  #   x: *cEnroll_nPSU_nS1S2,
-  #   y: *Target,
-  #   SL: 0.05,
-  #   traceOptimization: True,
-  #   show: file,
-  #   Optimize: True
-  # },
+  {
+    type: dt,
+    desc: Decision Tree,
+    xColNames:  cEnroll_nPSU_nS1S2,
+    xCategorical: *cat_enroll,
+    x: *cEnroll_nPSU_nS1S2,
+    y: *Target,
+    SL: 0.05,
+    traceOptimization: True,
+    show: file,
+    Optimize: True
+  },
   # {
   #   type: DT,
   #   desc: Decision Tree,
