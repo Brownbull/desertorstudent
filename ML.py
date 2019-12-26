@@ -42,29 +42,6 @@ X = dataset[mlCfg['ID'] + mlCfg['cat_enroll'] + mlCfg['num_PSU'] + mlCfg['num_S1
 # SET TARGET 
 Y = dataset[mlCfg['Target']]
 
-# ENCODE DATA
-X_see = cat2Dummy(X, mlCfg['cat_enroll'])
-X_bin = cat2Number(X, mlCfg['cat_enroll'])
-X_enc = cat2Dummy(X_bin, mlCfg['cat_enroll'])
-
-# end stage
-finishedStage = "ML_01_ENCODE"
-stageEnd(finishedStage, X_see, mlCfg['info'], mlCfg['debug'])
-stageEnd(finishedStage, X_bin, mlCfg['info'], mlCfg['debug'])
-stageEnd(finishedStage, X_enc, mlCfg['info'], mlCfg['debug'])
-
-# STORE DATA
-idx = False
-saveFullDF(X_see, finishedStage, idx)
-saveFullDF(X_bin, finishedStage, idx)
-saveFullDF(X_enc, finishedStage, idx)
-
-# RESET 
-# SET FEATURES
-X = dataset[mlCfg['ID'] + mlCfg['cat_enroll'] + mlCfg['num_PSU'] + mlCfg['num_S1'] + mlCfg['num_S2']]
-# SET TARGET 
-Y = dataset[mlCfg['Target']]
-
 # CALL ML MODELS
 from env.Include.ml.SLR import *
 from env.Include.ml.MLR import *

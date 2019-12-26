@@ -5,13 +5,66 @@
 """
 from env.Include.lib.functions import *
 from env.Include.ml.imports import *
+from sklearn.decomposition import PCA
 
-def backwardElimination(X, Xcols, y, folderPath, thisModelName, config):
+def getNComponents(train_X, test_X):
+  explained_variance_acc = 0
+  n_components = 0
+  # Get Optimal Number of components
+  pca = PCA(n_components = None, whiten = True)
+  train_X = pca.fit_transform(train_X)
+  test_X = pca.transform(test_X)
+  explained_variance = pca.explained_variance_ratio_
+  # Get Components number and total explained variance 
+  for i, ev in enumerate(explained_variance):
+    explained_variance_acc = explained_variance_acc + ev
+    if (explained_variance_acc > 0.75):
+      n_components = i + 1
+      break
+  return n_components, explained_variance_acc
+
+def principalComponentAnalysis(folderPath, modelName, config, train_X, test_X):
+  funcName = "principalComponentAnalysis"
+  print(modelName + ": Optimizing with " + funcName)
+
+  # Get Optimal numbers of componenets
+  n_components, explained_variance_acc = getNComponents(train_X, test_X)
+
+  # Applying PCA
+  pca = PCA(n_components = n_components, whiten = True)
+  train_X = pca.fit_transform(train_X)
+  test_X = pca.transform(test_X)
+  explained_variance = pca.explained_variance_ratio_
+
+  # Append Json Element
+  covsIdx = ['PCA Variable']
+  covsVar = ["Explained Variance Ratio"]
+  for i, cv in enumerate(explained_variance):
+    covsIdx.append(i + 1) 
+    covsVar.append(cv)
+  excelJson = [
+    {
+      "sheetName": "evr",
+      "sheetData": [ 
+        covsIdx,
+        covsVar,
+        ["Accumulated variance", explained_variance_acc]
+      ]
+    } 
+  ]
+  # Write Excel Optimization File 
+  save2xlsx(folderPath, funcName, excelJson, False, "cols")
+
+
+  train_X = pd.DataFrame(train_X)
+  test_X = pd.DataFrame(test_X)
+
+  return train_X, test_X, explained_variance
+
+
+def backwardElimination(X, Xcols, y, folderPath, modelName, config):
   funcName = "backwardElimination"
-  # SET WRITE DIRECTORY
-  outDir = "results/ML/" + thisModelName
-  if not Path(outDir).exists():
-    os.makedirs(outDir)
+  print(modelName + ": Optimizing with " + funcName)
 
   # Generate Static columns with one at beggining
   import statsmodels.api as sm

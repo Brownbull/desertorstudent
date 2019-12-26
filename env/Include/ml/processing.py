@@ -24,9 +24,9 @@ def cat2Dummy(df, cat_cols):
     df = df.drop(col, axis=1)
   return df
 
-def fScaling(X_train, X_test):
+def fScaling(train_X, test_X):
   # Feature Scaling
   sc = StandardScaler()
-  X_train = sc.fit_transform(X_train)
-  X_test = sc.transform(X_test)
-  return X_train, X_test
+  train_X = sc.fit_transform(train_X)
+  test_X = sc.transform(test_X)
+  return train_X, test_X

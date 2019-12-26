@@ -14,6 +14,8 @@ def MLR_input(folderPath, modelName, X, Y, config):
   X = X[config['x']]
   # Select Target 
   y = Y
+  cols2DropDesc = []
+  explained_variance = 0
   
   # ENCODE DATA
   if config['xCategorical']:
@@ -23,24 +25,34 @@ def MLR_input(folderPath, modelName, X, Y, config):
     X_enc = X
   X_enc_cols = list(X_enc.columns.values)
 
-  # Optimize
-  Xcols, cols2DropDesc = backwardElimination(X_enc, X_enc_cols, y, folderPath, modelName, config)
+  # Optimize BackwardElimination
+  if "BWE" in map(str.upper, config["Optimize"]):
+    X_enc_cols, cols2DropDesc = backwardElimination(X_enc, X_enc_cols, y, folderPath, modelName, config)
+
   # Set Optimal cols
-  X_enc = X_enc[Xcols]
+  X_enc = X_enc[X_enc_cols]
 
   # Fixed split
   from sklearn.model_selection import train_test_split
   train_X, test_X, train_y, test_y = train_test_split(X_enc, y, test_size = 0.2, random_state = 0)
 
+  # Feature Scaling
+  train_X, test_X = fScaling(train_X, test_X)
+
+  # Optimize PrincipalComponentAnalysis
+  if "PCA" in map(str.upper, config["Optimize"]):
+    train_X, test_X, explained_variance = principalComponentAnalysis(folderPath, modelName, config, train_X, test_X)
+    
   return {
-    'Xcols': Xcols,
+    'Xcols': X_enc_cols,
     'cols2DropDesc': cols2DropDesc,
     'X_enc': X_enc,
     'y': y,
     'train_X': train_X,
     'test_X': test_X,
     'train_y': train_y,
-    'test_y': test_y
+    'test_y': test_y,
+    'explained_variance' : explained_variance
   } 
   
 
@@ -56,8 +68,11 @@ def MLR_train(folderPath, modelName, ds, config):
   pred_y = (pred_y_raw > 0.5) 
   
   # Show graph
-  df = ds['X_enc']
-  df[config['y']] = ds['y']
+  # df = ds['X_enc']
+  # df[config['y']] = ds['y']
+  
+  df = ds['test_X']
+  df[config['y']] = ds['test_y']
   showCorrHeatMap(df, modelName, config['xColNames'], config['y'], config['show'])
   
   return {
