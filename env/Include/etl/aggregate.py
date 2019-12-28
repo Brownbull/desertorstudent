@@ -27,7 +27,7 @@ def unifyUncommon(df, debug, **kwargs):
   # Replace rare cases in each column
   for col in categoricalVariables:
     # unifyValue = 'X' * int(df[col].str.len().max())
-    unifyValue = -16
+    unifyValue = 'UNK'
     varCounts = (df[col].value_counts() < min)
     df[col] = df[col].apply(lambda x: unifyValue if varCounts.loc[x] == True else x)
 

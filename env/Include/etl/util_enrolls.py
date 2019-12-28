@@ -80,6 +80,36 @@ def enrolls_FeatureEng(dfEnrolls):
     else:
       dfEnrolls.loc[idx,'PostulationType'] = 'E'
 
+    # MotherEd
+    if dfEnrolls.loc[idx,'MotherEd'] in [0 ]:
+      dfEnrolls.loc[idx,'MotherEd'] = 'NOTINFO'
+    elif dfEnrolls.loc[idx,'MotherEd'] in [1 ]:
+      dfEnrolls.loc[idx,'MotherEd'] = 'NOTEDUC'
+    elif dfEnrolls.loc[idx,'MotherEd'] in [2 ]:
+      dfEnrolls.loc[idx,'MotherEd'] = 'BASPART'
+    elif dfEnrolls.loc[idx,'MotherEd'] in [3 ]:
+      dfEnrolls.loc[idx,'MotherEd'] = 'BASFULL'
+    elif dfEnrolls.loc[idx,'MotherEd'] in [4 ]:
+      dfEnrolls.loc[idx,'MotherEd'] = 'MEDPART'
+    elif dfEnrolls.loc[idx,'MotherEd'] in [5 ]:
+      dfEnrolls.loc[idx,'MotherEd'] = 'MEDFULL'
+    elif dfEnrolls.loc[idx,'MotherEd'] in [6 ]:
+      dfEnrolls.loc[idx,'MotherEd'] = 'CFTPART'
+    elif dfEnrolls.loc[idx,'MotherEd'] in [7 ]:
+      dfEnrolls.loc[idx,'MotherEd'] = 'CFTFULL'
+    elif dfEnrolls.loc[idx,'MotherEd'] in [8 ]:
+      dfEnrolls.loc[idx,'MotherEd'] = 'UNIPART'
+    elif dfEnrolls.loc[idx,'MotherEd'] in [9 ]:
+      dfEnrolls.loc[idx,'MotherEd'] = 'UNIFULL'
+    elif dfEnrolls.loc[idx,'MotherEd'] in [10 ]:
+      dfEnrolls.loc[idx,'MotherEd'] = 'OTHER'
+    elif dfEnrolls.loc[idx,'MotherEd'] in [11 ]:
+      dfEnrolls.loc[idx,'MotherEd'] = 'IPFPART'
+    elif dfEnrolls.loc[idx,'MotherEd'] in [12 ]:
+      dfEnrolls.loc[idx,'MotherEd'] = 'IPFFULL'  
+    else:
+      dfEnrolls.loc[idx,'MotherEd'] = 'UNK'
+
     # SchoolRegion
     if dfEnrolls['SchoolRegion'].dtype != np.float64: 
     # added for sample, 10 rows will case np.float64 tpe which does not have isnumeric() method

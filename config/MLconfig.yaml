@@ -144,34 +144,34 @@ models: [
   #   show: file,
   #   Optimize: True
   # },
-  # {
-  #   type: kmeans,
-  #   desc: K Means,
-  #   x: MathScr,
-  #   y: S2_GRD_4TO49,
-  #   show: file
-  # },
-  # {
-  #   type: kmeans,
-  #   desc: K Means,
-  #   x: MathScr,
-  #   y: ScienScr,
-  #   show: file
-  # },
-  # {
-  #   type: kmeans,
-  #   desc: K Means,
-  #   x: MathScr,
-  #   y: *Target,
-  #   show: file
-  # },
-  # {
-  #   type: kmeans,
-  #   desc: K Means,
-  #   x: MathScr,
-  #   y: NEMScr,
-  #   show: file
-  # },
+  {
+    type: kmeans,
+    desc: K Means,
+    x: MathScr,
+    y: S2_GRD_4TO49,
+    show: file
+  },
+  {
+    type: kmeans,
+    desc: K Means,
+    x: MathScr,
+    y: ScienScr,
+    show: file
+  },
+  {
+    type: kmeans,
+    desc: K Means,
+    x: MathScr,
+    y: *Target,
+    show: file
+  },
+  {
+    type: kmeans,
+    desc: K Means,
+    x: MathScr,
+    y: NEMScr,
+    show: file
+  },
   {
     type: svm,
     desc: Support Vector Machine,

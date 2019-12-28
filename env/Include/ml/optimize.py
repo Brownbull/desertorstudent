@@ -124,7 +124,7 @@ def backwardElimination(X, Xcols, y, folderPath, modelName, config):
             break
   
   # Remove ones column
-  Xcols.remove('Ones')
+  # Xcols.remove('Ones')
   # Set dropped columns from last to first
   cols2DropDesc = cols2DropAsc[::-1]
 

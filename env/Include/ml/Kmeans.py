@@ -22,7 +22,7 @@ def KMeans_elbow(outDir, modelName, dataset, config):
       kmeans.fit(X)
       wcss.append(kmeans.inertia_)
 
-  plt.cla()
+  plt.clf()
   plt.plot(range(1,11), wcss)
   plt.title(modelName + ': Elbow Method')
   plt.xlabel('Number of CLusters')
@@ -72,7 +72,7 @@ def KMeans_train(outDir, modelName, dataset, config, n_clusters):
   print("y_kmeans: " + str(len(y_kmeans)))
 
   # Visualize 2D only
-  plt.cla()
+  plt.clf()
   plt.scatter(X[y_kmeans == 0, 0], X[y_kmeans == 0, 1], s = 30, color = 'red', label = 'C1')
   plt.scatter(X[y_kmeans == 1, 0], X[y_kmeans == 1, 1], s = 30, color = 'blue', label = 'C2')
   plt.scatter(X[y_kmeans == 2, 0], X[y_kmeans == 2, 1], s = 30, color = 'green', label = 'C3')
