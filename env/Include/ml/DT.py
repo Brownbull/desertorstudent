@@ -26,8 +26,9 @@ def DT_input(folderPath, modelName, X, Y, config):
 
   # MLR Optimize
   if config['Optimize']:
-    Xcols, cols2DropDesc = backwardElimination(X_enc, X_enc_cols, y, folderPath, modelName, config)
-    X_enc = X_enc[Xcols]
+    X_enc_cols, cols2DropDesc = backwardElimination(X_enc, X_enc_cols, y, folderPath, modelName, config)
+     # Set Optimal cols
+    X_enc = X_enc[X_enc_cols]
 
   # Fixed split
   from sklearn.model_selection import train_test_split
@@ -37,7 +38,7 @@ def DT_input(folderPath, modelName, X, Y, config):
   train_X, test_X = fScaling(train_X, test_X)
 
   return {
-    'Xcols': Xcols,
+    'Xcols': X_enc_cols,
     'cols2DropDesc': cols2DropDesc,
     'X_enc': X_enc,
     'y': y,
@@ -75,9 +76,45 @@ def DT_train(folderPath, modelName, ds, config):
     from subprocess import check_output
     check_output("dot -Tpng " + outDir + "/tree.dot > " + outDir + "/tree.png", shell=True)
   
+  # VISUALIZATION
   df = ds['X_enc']
   df[config['y']] = ds['y']
   showCorrHeatMap(df, modelName, config['xColNames'], config['y'], config['show'])
+
+  # DATA SAVE
+  ds['train_X'] = pd.DataFrame(ds['train_X']) 
+  ds['test_X'] = pd.DataFrame(ds['test_X']) 
+  if type(config["Optimize"]) != type(True):
+    if "PCA" not in map(str.upper, config["Optimize"]):
+      ds['train_X'].columns = ds['Xcols']
+      ds['test_X'].columns = ds['Xcols']
+  else:
+    ds['train_X'].columns = ds['Xcols']
+    ds['test_X'].columns = ds['Xcols']
+
+  ds['train_y'] = pd.DataFrame(ds['train_y']) 
+  ds['train_y'].columns = ['train_y']
+  ds['test_y'] = pd.DataFrame(ds['test_y']) 
+  ds['test_y'].columns = ['train_y']
+  ds['pred_y_raw'] = pd.DataFrame(pred_y_raw) 
+  ds['pred_y_raw'].columns = ['pred_y_raw']
+  ds['pred_y'] = pd.DataFrame(pred_y) 
+  ds['pred_y'].columns = ['pred_y']
+  # Remove column
+  if checkIfexists(config['y'], ds['test_X']):
+    ds['test_X'].drop(config['y'], axis=1, inplace=True)
+
+  excelJson = [
+    {
+      "sheetName": 'train',
+      "sheetData": [ ds['train_X'], ds['train_y'] ]
+    },
+    {
+      "sheetName": 'test',
+      "sheetData": [ ds['test_X'], ds['test_y'], ds['pred_y_raw'], ds['pred_y']  ]
+    }
+  ]
+  save2xlsx(folderPath, funcName, excelJson, False, "df")
 
   # return classifier, modelName, test_y, pred_y, Xcols, X_enc
   return {
@@ -85,6 +122,7 @@ def DT_train(folderPath, modelName, ds, config):
     'model': classifier,
     'x' : ds['Xcols'], 
     'y' : config['y'],
+    'test_x' : ds['test_X'],
     'test_y' : ds['test_y'],
     'pred_y_raw': pred_y_raw,
     'pred_y': pred_y

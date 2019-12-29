@@ -28,9 +28,8 @@ def MLR_input(folderPath, modelName, X, Y, config):
   # Optimize BackwardElimination
   if "BWE" in map(str.upper, config["Optimize"]):
     X_enc_cols, cols2DropDesc = backwardElimination(X_enc, X_enc_cols, y, folderPath, modelName, config)
-
-  # Set Optimal cols
-  X_enc = X_enc[X_enc_cols]
+    # Set Optimal cols
+    X_enc = X_enc[X_enc_cols]
 
   # Fixed split
   from sklearn.model_selection import train_test_split
@@ -42,7 +41,7 @@ def MLR_input(folderPath, modelName, X, Y, config):
   # Optimize PrincipalComponentAnalysis
   if "PCA" in map(str.upper, config["Optimize"]):
     train_X, test_X, explained_variance = principalComponentAnalysis(folderPath, modelName, config, train_X, test_X)
-    
+  
   return {
     'Xcols': X_enc_cols,
     'cols2DropDesc': cols2DropDesc,
@@ -70,16 +69,53 @@ def MLR_train(folderPath, modelName, ds, config):
   # Show graph
   # df = ds['X_enc']
   # df[config['y']] = ds['y']
+
+  # DATA SAVE
+  ds['train_X'] = pd.DataFrame(ds['train_X']) 
+  ds['test_X'] = pd.DataFrame(ds['test_X']) 
+  if type(config["Optimize"]) != type(True):
+    if "PCA" not in map(str.upper, config["Optimize"]):
+      ds['train_X'].columns = ds['Xcols']
+      ds['test_X'].columns = ds['Xcols']
+  else:
+    ds['train_X'].columns = ds['Xcols']
+    ds['test_X'].columns = ds['Xcols']
+
+  ds['train_y'] = pd.DataFrame(ds['train_y']) 
+  ds['train_y'].columns = ['train_y']
+  ds['test_y'] = pd.DataFrame(ds['test_y']) 
+  ds['test_y'].columns = ['train_y']
+  ds['pred_y_raw'] = pd.DataFrame(pred_y_raw) 
+  ds['pred_y_raw'].columns = ['pred_y_raw']
+  ds['pred_y'] = pd.DataFrame(pred_y) 
+  ds['pred_y'].columns = ['pred_y']
+  # Remove column
+  if checkIfexists(config['y'], ds['test_X']):
+    ds['test_X'].drop(config['y'], axis=1, inplace=True)
   
+  # VISUALIZATION
   df = ds['test_X']
   df[config['y']] = ds['test_y']
   showCorrHeatMap(df, modelName, config['xColNames'], config['y'], config['show'])
+
+  excelJson = [
+    {
+      "sheetName": 'train',
+      "sheetData": [ ds['train_X'], ds['train_y'] ]
+    },
+    {
+      "sheetName": 'test',
+      "sheetData": [ ds['test_X'], ds['test_y'], ds['pred_y_raw'], ds['pred_y']  ]
+    }
+  ]
+  save2xlsx(folderPath, funcName, excelJson, False, "df")
   
   return {
     'config': config,
     'model': regressor,
     'x' : ds['Xcols'], 
     'y' : config['y'],
+    'test_x' : ds['test_X'],
     'test_y' : ds['test_y'],
     'pred_y_raw': pred_y_raw,
     'pred_y': pred_y

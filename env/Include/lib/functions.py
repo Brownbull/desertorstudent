@@ -172,8 +172,13 @@ def save2xlsx(folderPath, fileName, excelJson, idx, dataType):
   # WRITE EXCEL
   for sheet in excelJson:
     if dataType.upper() == "DF":
-      for i, data in enumerate(sheet['sheetData']):
+      i = 0
+      for data in sheet['sheetData']:
         data.to_excel(writer, sheet_name=sheet['sheetName'], startcol=i, index=idx)
+        if len(data.shape) > 1:
+          i += data.shape[1]
+        else:
+          i += 1
   
     elif dataType.upper() == "ROWS":
       worksheet = workbook.add_worksheet(sheet['sheetName'])
@@ -193,16 +198,18 @@ def save2xlsx(folderPath, fileName, excelJson, idx, dataType):
   elif dataType.upper() in ["ROWS", "COLS"]:
     workbook.close()
     # Adjust column width
-    excel = win32.gencache.EnsureDispatch('Excel.Application')
-    wb = excel.Workbooks.Open(absPath)
-    for sheet in excelJson: 
-      ws = wb.Worksheets(sheet['sheetName'])
-      ws.Columns.AutoFit()
-      ws.Columns.WrapText = True
-      ws.Columns.AutoFit()
-    wb.Save()
-    excel.Application.Quit()
     fileCreated = True
+
+  # ADJUST COLUMNS WIDTH  
+  excel = win32.gencache.EnsureDispatch('Excel.Application')
+  wb = excel.Workbooks.Open(absPath)
+  for sheet in excelJson: 
+    ws = wb.Worksheets(sheet['sheetName'])
+    ws.Columns.AutoFit()
+    ws.Columns.WrapText = True
+    ws.Columns.AutoFit()
+  wb.Save()
+  excel.Application.Quit()
 
   # TELL RESULTS    
   if fileCreated:

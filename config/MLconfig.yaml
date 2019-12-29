@@ -93,7 +93,7 @@ models: [
     y: *Target,
     SL: 0.05,
     traceOptimization: True,
-    Optimize: ["bwe","pca"],
+    Optimize: ["bwe"],
     show: file
   },
   {
@@ -105,7 +105,7 @@ models: [
     y: *Target,
     SL: 0.05,
     traceOptimization: True,
-    Optimize: ["bwe","pca"],
+    Optimize: ["bwe"],
     show: file
   },
   {
@@ -117,6 +117,7 @@ models: [
     y: *Target,
     SL: 0.05,
     traceOptimization: True,
+    Optimize: [],
     show: file,
     Optimize: True
   },
@@ -129,6 +130,7 @@ models: [
     y: *Target,
     SL: 0.05,
     traceOptimization: True,
+    Optimize: [],
     show: file,
     Optimize: True
   },
@@ -141,6 +143,7 @@ models: [
     y: *Target,
     SL: 0.05,
     traceOptimization: True,
+    Optimize: [],
     show: file,
     Optimize: True
   },

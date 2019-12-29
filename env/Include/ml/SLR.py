@@ -66,6 +66,7 @@ def SLR_train(folderPath, modelName, ds, config):
     'model': regressor,
     'x' : config['x'], 
     'y' : config['y'],
+    'test_x' : ds['test_X'],
     'test_y' : ds['test_y'],
     'pred_y_raw': pred_y_raw,
     'pred_y': pred_y

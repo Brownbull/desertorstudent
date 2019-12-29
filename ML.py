@@ -70,9 +70,7 @@ for config in reqModls:
       # TRAIN & PREDICT
       traindMdls[modelName] = SLR_train(folderPath, modelName, datasets, config)
       # EVALUATE
-      evaluateRegModel(
-        traindMdls[modelName]['test_y'], traindMdls[modelName]['pred_y'], 
-        folderPath, modelName, traindMdls[modelName])
+      evaluateRegModel(folderPath, modelName, traindMdls[modelName])
     else:
       # Conf Error
       print("Config in error for model: " + modelName)
@@ -89,9 +87,7 @@ for config in reqModls:
       # TRAIN & PREDICT
       traindMdls[modelName] = MLR_train(folderPath, modelName, datasets, config)
       # EVALUATE
-      evaluateRegModel(
-        traindMdls[modelName]['test_y'], traindMdls[modelName]['pred_y'], 
-        folderPath, modelName, traindMdls[modelName])
+      evaluateRegModel(folderPath, modelName, traindMdls[modelName])
     else:
       # Conf Error
       print("Config in error for model: " + modelName)
@@ -107,9 +103,7 @@ for config in reqModls:
       # TRAIN & PREDICT
       traindMdls[modelName]  = DT_train(folderPath, modelName, datasets, config)
       # EVALUATE
-      evaluateRegModel(
-        traindMdls[modelName]['test_y'], traindMdls[modelName]['pred_y'], 
-        folderPath, modelName, traindMdls[modelName])
+      evaluateRegModel(folderPath, modelName, traindMdls[modelName])
     else:
       # Conf Error
       print("Config in error for model: " + modelName)

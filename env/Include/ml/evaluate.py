@@ -7,7 +7,7 @@ from env.Include.ml.imports import *
 from env.Include.lib.functions import *
 
 
-def evaluateRegModel(test_y, pred_y, folderPath, modelName, modelResults):
+def evaluateRegModel(folderPath, modelName, modelResults):
   funcName = "evaluateRegModel"
   # SET WRITE DIRECTORY
   outDir = "results/ML/" + modelName
@@ -16,7 +16,7 @@ def evaluateRegModel(test_y, pred_y, folderPath, modelName, modelResults):
 
   # Making the Confusion Matrix
   from sklearn.metrics import confusion_matrix
-  cm = confusion_matrix(test_y, pred_y)
+  cm = confusion_matrix(modelResults['test_y'], modelResults['pred_y'])
 
   # Accuracy Values
   # Defs
