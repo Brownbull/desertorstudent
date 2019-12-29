@@ -56,7 +56,7 @@ OutDir = "results/ML/"
 # TRAIN MODELS
 for config in reqModls:
   modelType = config['type']
-  print("Processing model type:", modelType)
+  print("\nProcessing model type:", modelType)
 
   # SLR
   if modelType.upper() == 'SLR':

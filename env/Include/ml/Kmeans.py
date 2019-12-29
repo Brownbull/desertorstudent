@@ -28,6 +28,7 @@ def KMeans_elbow(outDir, modelName, dataset, config):
   plt.xlabel('Number of CLusters')
   plt.ylabel('WCSS')
   savePlt(plt, outDir, "Elbow.png")
+  plt.close()
 
   # Calculate distance between points
   wcssDiffs = []
@@ -83,6 +84,7 @@ def KMeans_train(outDir, modelName, dataset, config, n_clusters):
   plt.xlabel(config['x'])
   plt.ylabel(config['y'])
   savePlt(plt, outDir, str(n_clusters) + "Clusters.png")
+  plt.close()
 
   return {
     'config': config,

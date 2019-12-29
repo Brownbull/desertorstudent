@@ -11,6 +11,7 @@ def savePlt(plt, OutDir, FileName):
   setOrCreatePath(OutDir)
   plt.savefig(OutDir + FileName)
   print("savePlt: " + OutDir + FileName)
+  plt.close()
 
 def show2dScatter(train_X, train_y, y, x, regressor, thisModelName, show):
   if show in ['inline', 'file']:
@@ -31,6 +32,7 @@ def show2dScatter(train_X, train_y, y, x, regressor, thisModelName, show):
       print(outDir + "/" + x + "_vs_" + y + ".png Created")
   else:
     print("Missconfigured show")
+  plt.close()
 
 def showCorrHeatMap(df, thisModelName, x, y, show):
   if show in ['inline', 'file']:
@@ -58,3 +60,4 @@ def showCorrHeatMap(df, thisModelName, x, y, show):
     print(outDir + "/" + x + "_vs_" + y + ".png Created")
   else:
     print("Missconfigured show")
+  plt.close()

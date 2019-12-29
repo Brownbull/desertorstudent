@@ -28,14 +28,14 @@ Target: &Target 'Desertor'
 # Model Setup
 sample: 0
 models: [
-  # {
-  #   type: slr,
-  #   desc: Simple Linear Regression,
-  #   x: MotherEd,
-  #   y: S2_GRD_2TO29,
-  #   show: file,
-  #   log: all
-  # },
+  {
+    type: slr,
+    desc: Simple Linear Regression,
+    x: NEMScr,
+    y: S2_GRD_2TO29,
+    show: file,
+    log: all
+  },
   {
     type: mlr,
     desc: Multiple Linear Regression,
@@ -108,42 +108,42 @@ models: [
     Optimize: ["bwe","pca"],
     show: file
   },
-  # {
-  #   type: dt,
-  #   desc: Decision Tree,
-  #   xColNames:  cEnroll_nPSU_nS1S2,
-  #   xCategorical: *cat_enroll,
-  #   x: *cEnroll_nPSU_nS1S2,
-  #   y: *Target,
-  #   SL: 0.05,
-  #   traceOptimization: True,
-  #   show: file,
-  #   Optimize: True
-  # },
-  # {
-  #   type: DT,
-  #   desc: Decision Tree,
-  #   xColNames:  cEnroll_nS1S2,
-  #   xCategorical: *cat_enroll,
-  #   x: *cEnroll_nS1S2,
-  #   y: *Target,
-  #   SL: 0.05,
-  #   traceOptimization: True,
-  #   show: file,
-  #   Optimize: True
-  # },
-  # {
-  #   type: dT,
-  #   desc: Decision Tree,
-  #   xColNames:  cEnroll_nPSU,
-  #   xCategorical: *cat_enroll,
-  #   x: *cEnroll_nPSU,
-  #   y: *Target,
-  #   SL: 0.05,
-  #   traceOptimization: True,
-  #   show: file,
-  #   Optimize: True
-  # },
+  {
+    type: dt,
+    desc: Decision Tree,
+    xColNames:  cEnroll_nPSU_nS1S2,
+    xCategorical: *cat_enroll,
+    x: *cEnroll_nPSU_nS1S2,
+    y: *Target,
+    SL: 0.05,
+    traceOptimization: True,
+    show: file,
+    Optimize: True
+  },
+  {
+    type: DT,
+    desc: Decision Tree,
+    xColNames:  cEnroll_nS1S2,
+    xCategorical: *cat_enroll,
+    x: *cEnroll_nS1S2,
+    y: *Target,
+    SL: 0.05,
+    traceOptimization: True,
+    show: file,
+    Optimize: True
+  },
+  {
+    type: dT,
+    desc: Decision Tree,
+    xColNames:  cEnroll_nPSU,
+    xCategorical: *cat_enroll,
+    x: *cEnroll_nPSU,
+    y: *Target,
+    SL: 0.05,
+    traceOptimization: True,
+    show: file,
+    Optimize: True
+  },
   {
     type: kmeans,
     desc: K Means,
