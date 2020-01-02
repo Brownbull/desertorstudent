@@ -1,4 +1,4 @@
-grades_raw columns with null values:
+grades_raw columns with 0 values:
                            Rut                     0
                   Plan Estudio                     0
                    Nombre Plan                     0

@@ -1,4 +1,4 @@
-enrolls_data columns with null values:
+enrolls_data columns with 0 values:
                      EntryYear                     0
                            Rut                     0
                         Campus                     0

@@ -8,16 +8,24 @@ import pandas as pd
 
 def enrolls_Format(dfEnrolls):
   # RENAME COLS
-  dfEnrolls.columns = ['EntryYear', 'TypeId', 'Rut', 'PlanId', 'DemreCode', 'Career', 'Campus', 'PostulationType', 'EntryType', 'NEM', 'NEMScr', 'Ranking', 'LangScr', 'MathScr', 'ScienScr', 'HistScr', 'PrefUM', 'PrefDemre', 'SchoolCity', 'SchoolRegion', 'EdTypeCode', 'EdType', 'SchoolType', 'MotherEd']
+  dfEnrolls.columns = [
+    'EntryYear', 'TypeId', 'Rut', 'PlanId', 'DemreCode', 'Career', 'Campus', 'PostulationType', 
+    'EntryType', 'NEM', 'NEMScr', 'Ranking', 'LangScr', 'MathScr', 'ScienScr', 'HistScr', 'PrefUM', 'PrefDemre', 
+    'SchoolCity', 'SchoolRegion', 'EdTypeCode', 'EdType', 'SchoolType', 'MotherEd']
   # REMOVE LAST RUT CHAR
   dfEnrolls['Rut'] = dfEnrolls['Rut'].astype(str).str[:-1]
   dfEnrolls['Rut'] = pd.to_numeric(dfEnrolls['Rut'])
   # SORT FILES
   dfEnrolls = dfEnrolls.sort_values(by=['Rut', 'EntryYear'])
   # DROP DUPLICATES
-  dfEnrolls = dfEnrolls.drop_duplicates(subset=['EntryYear', 'TypeId', 'Rut', 'DemreCode', 'Career', 'Campus', 'PostulationType', 'NEM', 'NEMScr', 'Ranking', 'LangScr', 'MathScr', 'ScienScr', 'HistScr', 'PrefUM', 'PrefDemre', 'SchoolRegion', 'EdTypeCode', 'EdType', 'SchoolType', 'MotherEd'], keep='last')
+  dfEnrolls = dfEnrolls.drop_duplicates(subset=[
+    'EntryYear', 'TypeId', 'Rut', 'DemreCode', 'Career', 'Campus', 'PostulationType', 'NEM', 'NEMScr', 'Ranking', 
+    'LangScr', 'MathScr', 'ScienScr', 'HistScr', 'PrefUM', 'PrefDemre', 'SchoolRegion', 'EdTypeCode', 'EdType', 
+    'SchoolType', 'MotherEd'], keep='last')
   # DROP COLUMNS
-  enrolls_drop_cols = ['TypeId','PlanId','DemreCode','Career','EntryType','NEM','HistScr','PrefUM','PrefDemre','SchoolCity','EdType']
+  enrolls_drop_cols = [
+    'TypeId','PlanId','DemreCode','Career','EntryType','NEM','HistScr','PrefUM','PrefDemre',
+    'SchoolCity','EdType']
   dfEnrolls = dfEnrolls.drop(enrolls_drop_cols, axis=1)
   
   return dfEnrolls
@@ -149,6 +157,7 @@ def enrolls_FeatureEng(dfEnrolls):
           dfEnrolls.loc[idx,'SchoolRegion'] = 'XV'
         else:
           dfEnrolls.loc[idx,'SchoolRegion'] = dfEnrolls.loc[idx,'SchoolRegion'] + "_UNK"
+          
     # EdTypeCode
     edType = dfEnrolls.loc[idx,'EdTypeCode'].strip()
     if edType == 'H1': # Humanista Científico Diurno

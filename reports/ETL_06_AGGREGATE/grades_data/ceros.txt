@@ -1,4 +1,4 @@
-grades_data columns with null values:
+grades_data columns with 0 values:
                            Rut                     0
                           Year                     0
                         Period                     0

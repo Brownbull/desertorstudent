@@ -89,7 +89,7 @@ def dfStats(df, dfName, stageName):
 
   # 0s
   fNull = open(outDir +"/ceros.txt", 'w+')
-  fNull.write(dfName + ' columns with null values:\n')
+  fNull.write(dfName + ' columns with 0 values:\n')
   ceros = (df == 0).sum(axis=0)
   for key,value in ceros.iteritems():
     fNull.write('{:>30}  {:>20}\n'.format(key, str(value)))
@@ -183,12 +183,20 @@ def save2xlsx(folderPath, fileName, excelJson, idx, dataType):
     elif dataType.upper() == "ROWS":
       worksheet = workbook.add_worksheet(sheet['sheetName'])
       for i, data in enumerate(sheet['sheetData']):
-        worksheet.write_row(row + i, col, tuple(data), cell_format)
+        try:
+          worksheet.write_row(row + i, col, tuple(data), cell_format)
+        except:
+          print(folderPath + fileName + ": Error writing Excel\n")
+          break
       
     elif dataType.upper() == "COLS":
       worksheet = workbook.add_worksheet(sheet['sheetName'])
       for i, data in enumerate(sheet['sheetData']):
-        worksheet.write_column(row, col + i, tuple(data), cell_format)
+        try:
+          worksheet.write_column(row, col + i, tuple(data), cell_format)
+        except:
+          print(folderPath + fileName + ": Error writing Excel\n")
+          break
       
 
   # CLOSE EXCEL

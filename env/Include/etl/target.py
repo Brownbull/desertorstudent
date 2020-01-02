@@ -13,7 +13,10 @@ def getTarget(dfEnrolls, dfGrades, sample):
   for idx, row in dfEnrolls.iterrows():
     if row['Rut'] in grades_maxYear.keys():
       if sample:
-        print("Rut: " + str(row['Rut']) + " Max: " + str(grades_maxYear[row['Rut']]) + " Min: " + str(grades_minYear[row['Rut']]) )
+        print(
+          "Rut: " + str(row['Rut']) + 
+          " Max: " + str(grades_maxYear[row['Rut']]) + 
+          " Min: " + str(grades_minYear[row['Rut']]) )
       dfEnrolls.loc[idx,'Desertor'] = 1 if grades_maxYear[row['Rut']] - grades_minYear[row['Rut']] == 0 else 0
     else:
       print("Rut NOT found: " + str(row['Rut']))

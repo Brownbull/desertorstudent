@@ -1,4 +1,4 @@
-enrolls_raw columns with null values:
+enrolls_raw columns with 0 values:
                    año ingreso                     0
                        TIPO ID                     0
                            RUT                     0

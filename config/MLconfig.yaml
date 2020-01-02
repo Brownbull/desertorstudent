@@ -31,8 +31,32 @@ models: [
   {
     type: slr,
     desc: Simple Linear Regression,
-    x: NEMScr,
-    y: S2_GRD_2TO29,
+    x: Ranking,
+    y: S1_WORST_GRD,
+    show: file,
+    log: all
+  },
+  {
+    type: slr,
+    desc: Simple Linear Regression,
+    x: Ranking,
+    y: S1_CVL,
+    show: file,
+    log: all
+  },
+  {
+    type: slr,
+    desc: Simple Linear Regression,
+    x: Ranking,
+    y: S1_GRD_4TO49,
+    show: file,
+    log: all
+  },
+  {
+    type: slr,
+    desc: Simple Linear Regression,
+    x: Ranking,
+    y: NEMScr,
     show: file,
     log: all
   },

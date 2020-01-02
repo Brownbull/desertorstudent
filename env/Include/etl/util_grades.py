@@ -7,14 +7,18 @@ import pandas as pd
 
 def grades_Format(dfGrades):
   # RENAME COLS
-  dfGrades.columns = ['Rut', 'StudyPlan', 'PlanName', 'Subject', 'SubjName', 'EnrollReason', 'ReasonDesc', 'SubjStatus', 'Year', 'Period', 'SubjValidate', 'Section', 'Grade', 'SubjHomologate' ]
+  dfGrades.columns = [
+    'Rut', 'StudyPlan', 'PlanName', 'Subject', 'SubjName', 'EnrollReason', 'ReasonDesc', 'SubjStatus', 'Year', 
+    'Period', 'SubjValidate', 'Section', 'Grade', 'SubjHomologate' ]
   # REMOVE LAST RUT CHAR
   dfGrades['Rut'] = dfGrades['Rut'].astype(str).str[:-1]
   dfGrades['Rut'] = pd.to_numeric(dfGrades['Rut'])
   # SORT FILES
   dfGrades = dfGrades.sort_values(by=['Rut', 'Year', 'Period', 'Grade', 'SubjStatus'])
   # DROP DUPLICATES
-  dfGrades = dfGrades.drop_duplicates(subset=['Rut', 'Subject', 'SubjName', 'EnrollReason', 'ReasonDesc', 'SubjStatus', 'Year', 'Period', 'SubjValidate', 'Section', 'Grade', 'SubjHomologate' ], keep='last')
+  dfGrades = dfGrades.drop_duplicates(subset=[
+    'Rut', 'Subject', 'SubjName', 'EnrollReason', 'ReasonDesc', 'SubjStatus', 'Year', 'Period', 'SubjValidate', 
+    'Section', 'Grade', 'SubjHomologate' ], keep='last')
   # DROP COLUMNS
   grades_drop_cols = ['StudyPlan','PlanName','Subject','SubjName','EnrollReason','ReasonDesc','Section']
   dfGrades.drop(grades_drop_cols, axis=1, inplace = True)
