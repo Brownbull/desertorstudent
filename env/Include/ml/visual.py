@@ -38,7 +38,14 @@ def showCorrHeatMap(df, thisModelName, x, y, show):
   if show in ['inline', 'file']:
     _ , ax = plt.subplots(figsize =(20, 16))
     colormap = sns.diverging_palette(220, 10, as_cmap = True)
+    if df.shape[1] <= 5:
+      fntSize = 18
+    elif df.shape[1] < 10:
+      fntSize = 14
+    else:
+      fntSize = 12
     
+    sns.set(font_scale=1.4)
     _ = sns.heatmap(
         df.corr(), 
         cmap = colormap,
@@ -47,7 +54,7 @@ def showCorrHeatMap(df, thisModelName, x, y, show):
         ax=ax,
         annot=True, 
         linewidths=0.1,vmax=1.0, linecolor='white',
-        annot_kws={'fontsize':12 }
+        annot_kws={'fontsize':fntSize }
     )
   plt.title('Pearson Correlation of Features', y=1.05, size=15)
   if show == 'inline':
