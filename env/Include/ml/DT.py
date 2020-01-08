@@ -71,6 +71,7 @@ def DT_train(folderPath, modelName, ds, config):
         classifier, feature_names=ds['Xcols'], out_file=outDir + "/tree.dot", 
         filled=True, rounded=True,
         special_characters=True, impurity=False, class_names=True
+        # , label="none"
         # ,proportion=True
         )
     from subprocess import check_output

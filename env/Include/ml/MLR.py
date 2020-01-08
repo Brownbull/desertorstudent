@@ -65,10 +65,6 @@ def MLR_train(folderPath, modelName, ds, config):
   # Predict
   pred_y_raw = regressor.predict(ds['test_X'])
   pred_y = (pred_y_raw > 0.5) 
-  
-  # Show graph
-  # df = ds['X_enc']
-  # df[config['y']] = ds['y']
 
   # DATA SAVE
   ds['train_X'] = pd.DataFrame(ds['train_X']) 
@@ -92,6 +88,8 @@ def MLR_train(folderPath, modelName, ds, config):
   # Remove column
   if checkIfexists(config['y'], ds['test_X']):
     ds['test_X'].drop(config['y'], axis=1, inplace=True)
+  if checkIfexists('Ones', ds['test_X']):
+    ds['test_X'].drop('Ones', axis=1, inplace=True)
   
   # VISUALIZATION
   df = ds['test_X']
